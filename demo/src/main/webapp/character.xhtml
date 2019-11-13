@@ -10,7 +10,8 @@
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
         <p:layoutUnit position="center" >
-                <p:panelGrid >
+            <h:form>
+                <p:panelGrid style="margin-left: auto; margin-right: auto">
                     <p:row style="background: radial-gradient( red, yellow); ">
                         <p:column colspan="6">
                             <p:graphicImage library="characters" name="terran.png" style="display: block; margin-left: auto; margin-right: auto"/>
@@ -31,6 +32,10 @@
                     <p:row>
                         <p:column colspan="3">Cash:</p:column>
                         <p:column colspan="3">240$</p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="3">Energy:</p:column>
+                        <p:column colspan="3">100</p:column>
                     </p:row>
 
                     <p:row>
@@ -60,7 +65,7 @@
                             <p:button icon="pi pi-plus" ></p:button>
                         </p:column>
                     </p:row>
-                    <p:row >
+                    <p:row id="equipped">
                         <p:column colspan="1">
                             <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
                         </p:column>
@@ -81,17 +86,16 @@
                         </p:column>
                     </p:row>
                 </p:panelGrid>
+                <p:contextMenu for="equipped">
+                    <p:menuitem value="Unequip" />
+                </p:contextMenu>
+            </h:form>
         </p:layoutUnit>
 
         <p:layoutUnit position="east" >
-                <p:panelGrid>
+            <h:form>
+                <p:panelGrid id="inventory">
                     <p:row >
-                        <p:column colspan="1">
-                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                        <p:column colspan="1">
-                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
                         <p:column colspan="1">
                             <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
                         </p:column>
@@ -106,6 +110,16 @@
                         <p:column colspan="1">
                             <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
                         </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="1">
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                        <p:column colspan="1">
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
                         <p:column colspan="1">
                             <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
                         </p:column>
@@ -114,6 +128,11 @@
                         </p:column>
                     </p:row>
                 </p:panelGrid>
+                <p:contextMenu for="inventory">
+                    <p:menuitem value="Equip" />
+                </p:contextMenu>
+            </h:form>
+
         </p:layoutUnit>
 
     </ui:define>

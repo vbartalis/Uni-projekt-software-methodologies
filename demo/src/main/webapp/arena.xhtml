@@ -9,7 +9,39 @@
 >
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
-        <p:layoutUnit position="center">
+        <p:layoutUnit position="center" style="background-image: url('resources/background/arena.jpg'); background-size: cover; width: 100%; height: auto; overflow: hidden;" class="transparentChild">
+            <p:panelGrid style="margin-left: auto; margin-right: auto">
+                <p:row style="background: radial-gradient( red, yellow); ">
+                    <p:column colspan="6">
+                        <p:graphicImage library="characters" name="terran.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="3">Name:</p:column>
+                    <p:column colspan="3">Jim Hawkins</p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="3">Race:</p:column>
+                    <p:column colspan="3">Terran</p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="3">Level:</p:column>
+                    <p:column colspan="3">32</p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="3">Cash:</p:column>
+                    <p:column colspan="3">240$</p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="3">
+                        <p:button value="Next"></p:button>
+                    </p:column>
+                    <p:column colspan="3">
+                        <p:button value="Atack"></p:button>
+                    </p:column>
+                </p:row>
+
+            </p:panelGrid>
 
         </p:layoutUnit>
     </ui:define>

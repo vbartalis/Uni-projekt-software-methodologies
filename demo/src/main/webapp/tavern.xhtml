@@ -9,10 +9,28 @@
 >
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
-        <p:layoutUnit position="center">
-            <p:panel style="background-image: url('./resources/background/tavern.jpg');background-repeat: no-repeat; background-color: steelblue; width: 1024px; height: 576px" >
+        <p:layoutUnit position="center" class="transparentBackground" style="background-image: url('./resources/background/tavern.jpg');background-repeat: no-repeat; background-color: saddlebrown; background-size: cover">
+            <p:tabView style="margin-left: auto; margin-right: auto">
+                <p:tab title="Traveller">
+                    <p:panel>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget ultricies leo, vel lobortis nulla. Vestibulum ut urna purus.
+                        <p:button value="start"></p:button>
+                        <p:button value="give up"></p:button>
+                        <p:button value="finish"></p:button>
+                    </p:panel>
+                </p:tab>
+                <p:tab title="Merchant">
+                    <p:panel>
+                        Vestibulum ut urna purus. Quisque molestie tristique tempor. Suspendisse potenti.
+                    </p:panel>
+                </p:tab>
+                <p:tab title="Pirate">
+                    <p:panel>
+                        Donec in quam arcu. Praesent facilisis nisi in eleifend cursus. Morbi varius sapien sit amet tortor dignissim sagittis.
+                    </p:panel>
+                </p:tab>
+            </p:tabView>
 
-            </p:panel>
         </p:layoutUnit>
     </ui:define>
 </ui:composition>

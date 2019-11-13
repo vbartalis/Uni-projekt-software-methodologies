@@ -1,21 +1,13 @@
 
 
 
-/*
-.transparentBackground > *{
-    border: 1px solid #a8a8a8;
-    background: transparent !important;
-    color: #4f4f4f;
-}
 
-.transparentBackground>.ui-widget-content {
-    border: 1px solid #a8a8a8;
-    background: transparent !important;
-    color: #4f4f4f;
-}
-*/
 .transparentBackground >*,
 .transparentBackground tr{
+    background: transparent !important;
+}
+
+.transparentChild >* {
     background: transparent !important;
 }
 

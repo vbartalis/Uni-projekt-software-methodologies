@@ -12,75 +12,87 @@
 
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
-        <p:layoutUnit position="center" style="background-image: url('resources/background/market.jpg'); background-size: cover; width: 100%; height: auto; overflow: hidden;" class="transparentBackground">
-            <p:panelGrid style="margin-left: auto; margin-right: auto">
-                <p:row>
-                    <p:column colspan="6" class="notTransparent">
-                        <p:graphicImage library="characters" name="merchant1.jpg" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                </p:row>
-                <p:row>
-                    <p:column colspan="3" class="notTransparent">Cash:</p:column>
-                    <p:column colspan="3" class="notTransparent">240$</p:column>
-                </p:row>
-                <p:row >
-                    <p:column colspan="1" class="notTransparent">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                    <p:column colspan="1" class="notTransparent">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                    <p:column colspan="1" class="notTransparent">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                    <p:column colspan="1" class="notTransparent">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                    <p:column colspan="1" class="notTransparent">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                    <p:column colspan="1" class="notTransparent">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                </p:row>
-            </p:panelGrid>
+        <p:layoutUnit position="center" style="background-image: url('resources/background/market.jpg'); background-size: cover; width: 100%; height: auto; overflow: hidden;" class="transparentChild">
+            <h:form>
+                <p:panelGrid style="margin-left: auto; margin-right: auto">
+                    <p:row>
+                        <p:column colspan="6" >
+                            <p:graphicImage library="characters" name="merchant1.jpg" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="3" >Cash:</p:column>
+                        <p:column colspan="3" >240$</p:column>
+                    </p:row>
+                    <p:row id="shopInventory">
+                        <p:column colspan="1" >
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                        <p:column colspan="1" >
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                        <p:column colspan="1" >
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                        <p:column colspan="1" >
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                        <p:column colspan="1" >
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                        <p:column colspan="1" >
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                <p:contextMenu for="shopInventory">
+                    <p:menuitem value="Buy" />
+                </p:contextMenu>
+            </h:form>
+
         </p:layoutUnit>
 
         <p:layoutUnit position="east" >
-            <p:panelGrid>
-                <p:row >
-                    <p:column colspan="1">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                    <p:column colspan="1">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                </p:row>
-                <p:row>
-                    <p:column colspan="1">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                    <p:column colspan="1">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                </p:row>
-                <p:row>
-                    <p:column colspan="1">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                    <p:column colspan="1">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                </p:row>
-                <p:row>
-                    <p:column colspan="1">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                    <p:column colspan="1">
-                        <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                </p:row>
-            </p:panelGrid>
+            <h:form>
+                <p:panelGrid id="playerInventory">
+                    <p:row >
+                        <p:column colspan="1">
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                        <p:column colspan="1">
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="1">
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                        <p:column colspan="1">
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="1">
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                        <p:column colspan="1">
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="1">
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                        <p:column colspan="1">
+                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+                <p:contextMenu for="playerInventory">
+                    <p:menuitem value="Sell" />
+                </p:contextMenu>
+            </h:form>
+
 
         </p:layoutUnit>
     </ui:define>

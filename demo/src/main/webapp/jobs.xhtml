@@ -9,8 +9,24 @@
 >
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
-        <p:layoutUnit position="center">
-
+        <p:layoutUnit position="center" class="transparentChild" style="background-image: url('./resources/background/jobs.jpg');background-repeat: no-repeat; background-color: saddlebrown; background-size: cover">
+            <p:panelGrid style="margin-left: auto; margin-right: auto">
+                <p:row>
+                    <p:column colspan="2">Cargo unloader</p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="1">time</p:column>
+                    <p:column colspan="1">5:55 hour</p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="1">
+                        <p:button value="Start working" ></p:button>
+                    </p:column>
+                    <p:column colspan="1">
+                        <p:button value="Stop working" ></p:button>
+                    </p:column>
+                </p:row>
+            </p:panelGrid>
         </p:layoutUnit>
     </ui:define>
 </ui:composition>
