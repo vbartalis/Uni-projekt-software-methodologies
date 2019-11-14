@@ -24,7 +24,7 @@ public class CharacterView {
     }
 
     public int getExp() {
-        return Character.getExp();
+        return Character.getDex() + Character.getCon() + Character.getStr() + Character.getIntel();
     }
     public int getCash() {
         return Character.getCash();
@@ -83,5 +83,8 @@ public class CharacterView {
     public int getInv8() {
         return Character.getInv8();
     }
+    public int getLevel() { return getExp()/10;}
 
 }
+
+

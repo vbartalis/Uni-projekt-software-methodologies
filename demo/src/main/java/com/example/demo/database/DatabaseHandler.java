@@ -160,9 +160,12 @@ public class DatabaseHandler {
         }
     }
 
-    public static void updateUser(Connection conn, String username, String whatToUpdate, Object newValue) {
+    public static void updateUser(String username, String whatToUpdate, Object newValue) {
+        Connection connection = connect();
+
+        Statement statement = null;
         try {
-            statement = conn.createStatement();
+            statement = connection.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Something went wrong while trying to create statement to update the user..");
@@ -176,6 +179,12 @@ public class DatabaseHandler {
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Couldn't update " + username + " TABLE's " + whatToUpdate + " field to " + newValue);
+        }
+
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

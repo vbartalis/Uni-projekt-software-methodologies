@@ -3,7 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
 >
@@ -27,7 +27,15 @@
                     </p:row>
                     <p:row>
                         <p:column colspan="3">Level:</p:column>
-                        <p:column colspan="3">#{characterView.getExp()}</p:column>
+                        <p:column colspan="3">
+                            <h:outputText id="level" value="#{characterView.getLevel()}"></h:outputText>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="3">XP:</p:column>
+                        <p:column colspan="3">
+                            <h:outputText id="xp" value="#{characterView.getExp()}"></h:outputText>
+                        </p:column>
                     </p:row>
                     <p:row>
                         <p:column colspan="3">Cash:</p:column>
@@ -40,31 +48,43 @@
 
                     <p:row>
                         <p:column colspan="1">Strength:</p:column>
-                        <p:column colspan="1">#{characterView.getStr()}</p:column>
                         <p:column colspan="1">
-                            <p:button icon="pi pi-plus" ></p:button>
+                            <h:outputText id="str" value="#{characterView.getStr()}"></h:outputText>
+                        </p:column>
+                        <p:column colspan="1">
+                            <p:commandButton icon="pi pi-plus" action="#{characterController.growStrBy(1)}" update="str xp level" ></p:commandButton>
                         </p:column>
 
                         <p:column colspan="1">Dexterity:</p:column>
-                        <p:column colspan="1">#{characterView.getDex()}</p:column>
                         <p:column colspan="1">
-                            <p:button icon="pi pi-plus" ></p:button>
+                            <h:outputText id = "dex" value="#{characterView.getDex()}"/>
+                        </p:column>
+                        <p:column colspan="1">
+                            <p:commandButton icon="pi pi-plus" action="#{characterController.growDexBy(1)}" update="dex xp level">
+
+                            </p:commandButton>
                         </p:column>
                     </p:row>
 
                     <p:row>
                         <p:column colspan="1">Intelligence:</p:column>
-                        <p:column colspan="1">#{characterView.getIntel()}</p:column>
                         <p:column colspan="1">
-                            <p:button icon="pi pi-plus" ></p:button>
+                            <h:outputText id="int" value="#{characterView.getIntel()}"/>
+                        </p:column>
+                        <p:column colspan="1">
+                            <p:commandButton icon="pi pi-plus" action="#{characterController.growIntelBy(1)}" update="int xp level" ></p:commandButton>
                         </p:column>
 
+
                         <p:column colspan="1">Constitution:</p:column>
-                        <p:column colspan="1">#{characterView.getCon()}</p:column>
                         <p:column colspan="1">
-                            <p:button icon="pi pi-plus" ></p:button>
+                            <h:outputText id="con" value="#{characterView.getCon()}"></h:outputText>
+                        </p:column>
+                        <p:column colspan="1">
+                            <p:commandButton icon="pi pi-plus" action="#{characterController.growConBy(1)}" update="con xp level" ></p:commandButton>
                         </p:column>
                     </p:row>
+
                     <p:row id="equipped">
                         <p:column colspan="1">
                             <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
