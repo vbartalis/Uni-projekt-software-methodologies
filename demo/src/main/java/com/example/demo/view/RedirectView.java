@@ -9,7 +9,8 @@ public class RedirectView {
 
 
     public String redirect() {
-        System.out.println("Redirecting to " + RedirectHandler.getRedirectSite() + "...");
-        return RedirectHandler.getRedirectSite();
+        String toRedirect = RedirectHandler.getRedirectSite() + "?faces-redirect=true";
+        System.out.println("Redirecting to " + toRedirect);
+        return toRedirect;
     }
 }
