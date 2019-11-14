@@ -19,34 +19,34 @@
                     </p:row>
                     <p:row>
                         <p:column colspan="3">Name:</p:column>
-                        <p:column colspan="3">Jim Hawkins</p:column>
+                        <p:column colspan="3">#{cookieView.getNameStoredInCookie()}</p:column>
                     </p:row>
                     <p:row>
                         <p:column colspan="3">Race:</p:column>
-                        <p:column colspan="3">Terran</p:column>
+                        <p:column colspan="3">#{characterView.getRace()}</p:column>
                     </p:row>
                     <p:row>
                         <p:column colspan="3">Level:</p:column>
-                        <p:column colspan="3">32</p:column>
+                        <p:column colspan="3">#{characterView.getExp()}</p:column>
                     </p:row>
                     <p:row>
                         <p:column colspan="3">Cash:</p:column>
-                        <p:column colspan="3">240$</p:column>
+                        <p:column colspan="3">#{characterView.getCash()}$</p:column>
                     </p:row>
                     <p:row>
                         <p:column colspan="3">Energy:</p:column>
-                        <p:column colspan="3">100</p:column>
+                        <p:column colspan="3">#{characterView.getEnergy()}</p:column>
                     </p:row>
 
                     <p:row>
                         <p:column colspan="1">Strength:</p:column>
-                        <p:column colspan="1">20</p:column>
+                        <p:column colspan="1">#{characterView.getStr()}</p:column>
                         <p:column colspan="1">
                             <p:button icon="pi pi-plus" ></p:button>
                         </p:column>
 
                         <p:column colspan="1">Dexterity:</p:column>
-                        <p:column colspan="1">35</p:column>
+                        <p:column colspan="1">#{characterView.getDex()}</p:column>
                         <p:column colspan="1">
                             <p:button icon="pi pi-plus" ></p:button>
                         </p:column>
@@ -54,13 +54,13 @@
 
                     <p:row>
                         <p:column colspan="1">Intelligence:</p:column>
-                        <p:column colspan="1">30</p:column>
+                        <p:column colspan="1">#{characterView.getIntel()}</p:column>
                         <p:column colspan="1">
                             <p:button icon="pi pi-plus" ></p:button>
                         </p:column>
 
                         <p:column colspan="1">Constitution:</p:column>
-                        <p:column colspan="1">22</p:column>
+                        <p:column colspan="1">#{characterView.getCon()}</p:column>
                         <p:column colspan="1">
                             <p:button icon="pi pi-plus" ></p:button>
                         </p:column>
@@ -129,7 +129,7 @@
                     </p:row>
                 </p:panelGrid>
                 <p:contextMenu for="inventory">
-                    <p:menuitem value="Equip" />
+                    <p:menuitem value="Equip"/>
                 </p:contextMenu>
             </h:form>
 
