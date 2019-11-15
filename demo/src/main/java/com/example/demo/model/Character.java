@@ -3,226 +3,224 @@ package com.example.demo.model;
 
 public class Character {
 
+    private String name;
+    private String race;
+    private String img;
+    private int energy;
+    private int exp;
+    private int cash;
+    private int str;
+    private int intel;
+    private int con;
+    private int dex;
+    private int helmet;
+    private int gloves;
+    private int boots;
+    private int outfit;
+    private int weapon;
+    private int jewellry;
+    private int inv1;
+    private int inv2;
+    private int inv3;
+    private int inv4;
+    private int inv5;
+    private int inv6;
+    private int inv7;
+    private int inv8;
 
-    private static String name;
-    private static String race;
-    private static String img;
-    private static int energy;
-    private static int exp;
-    private static int cash;
-    private static int str;
-    private static int intel;
-    private static int con;
-    private static int dex;
-    private static int helmet;
-    private static int gloves;
-    private static int boots;
-    private static int outfit;
-    private static int weapon;
-    private static int jewellry;
-    private static int inv1;
-    private static int inv2;
-    private static int inv3;
-    private static int inv4;
-    private static int inv5;
-    private static int inv6;
-    private static int inv7;
-    private static int inv8;
 
-
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static void setName(String name) {
-        Character.name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static String getRace() {
+    public String getRace() {
         return race;
     }
 
-    public static void setRace(String race) {
-        Character.race = race;
+    public void setRace(String race) {
+        this.race = race;
     }
 
-    public static String getImg() {
+    public String getImg() {
         return img;
     }
 
-    public static void setImg(String img) {
-        Character.img = img;
+    public void setImg(String img) {
+        this.img = img;
     }
 
-
-    public static int getEnergy() {
+    public int getEnergy() {
         return energy;
     }
 
-    public static void setEnergy(int energy) {
-        Character.energy = energy;
+    public void setEnergy(int energy) {
+        this.energy = energy;
     }
 
-
-    public static int getExp() {
-        return exp;
+    public int getExp() {
+        return getDex() + getIntel() + getCon() + getStr();
     }
 
-    public static void setExp(int exp) {
-        Character.exp = exp;
+    public void setExp(int exp) {
+        this.exp = exp;
     }
 
-    public static int getCash() {
+    public int getCash() {
         return cash;
     }
 
-    public static void setCash(int cash) {
-        Character.cash = cash;
+    public void setCash(int cash) {
+        this.cash = cash;
     }
 
-    public static int getStr() {
+    public int getStr() {
         return str;
     }
 
-    public static void setStr(int str) {
-        Character.str = str;
+    public void setStr(int str) {
+        this.str = str;
     }
 
-    public static int getIntel() {
+    public int getIntel() {
         return intel;
     }
 
-    public static void setIntel(int intel) {
-        Character.intel = intel;
+    public void setIntel(int intel) {
+        this.intel = intel;
     }
 
-    public static int getCon() {
+    public int getCon() {
         return con;
     }
 
-    public static void setCon(int con) {
-        Character.con = con;
+    public void setCon(int con) {
+        this.con = con;
     }
 
-    public static int getDex() {
+    public int getDex() {
         return dex;
     }
 
-    public static void setDex(int dex) {
-        Character.dex = dex;
+    public void setDex(int dex) {
+        this.dex = dex;
     }
 
-    public static int getHelmet() {
+    public int getHelmet() {
         return helmet;
     }
 
-    public static void setHelmet(int helmet) {
-        Character.helmet = helmet;
+    public void setHelmet(int helmet) {
+        this.helmet = helmet;
     }
 
-    public static int getGloves() {
+    public int getGloves() {
         return gloves;
     }
 
-    public static void setGloves(int gloves) {
-        Character.gloves = gloves;
+    public void setGloves(int gloves) {
+        this.gloves = gloves;
     }
 
-
-    public static int getBoots() {
+    public int getBoots() {
         return boots;
     }
 
-    public static void setBoots(int boots) {
-        Character.boots = boots;
+    public void setBoots(int boots) {
+        this.boots = boots;
     }
 
-    public static int getOutfit() {
+    public int getOutfit() {
         return outfit;
     }
 
-    public static void setOutfit(int outfit) {
-        Character.outfit = outfit;
+    public void setOutfit(int outfit) {
+        this.outfit = outfit;
     }
 
-    public static int getWeapon() {
+    public int getWeapon() {
         return weapon;
     }
 
-    public static void setWeapon(int weapon) {
-        Character.weapon = weapon;
+    public void setWeapon(int weapon) {
+        this.weapon = weapon;
     }
 
-    public static int getJewellry() {
+    public int getJewellry() {
         return jewellry;
     }
 
-    public static void setJewellry(int jewellry) {
-        Character.jewellry = jewellry;
+    public void setJewellry(int jewellry) {
+        this.jewellry = jewellry;
     }
 
-    public static int getInv1() {
+    public int getInv1() {
         return inv1;
     }
 
-    public static void setInv1(int inv1) {
-        Character.inv1 = inv1;
+    public void setInv1(int inv1) {
+        this.inv1 = inv1;
     }
 
-    public static int getInv2() {
+    public int getInv2() {
         return inv2;
     }
 
-    public static void setInv2(int inv2) {
-        Character.inv2 = inv2;
+    public void setInv2(int inv2) {
+        this.inv2 = inv2;
     }
 
-    public static int getInv3() {
+    public int getInv3() {
         return inv3;
     }
 
-    public static void setInv3(int inv3) {
-        Character.inv3 = inv3;
+    public void setInv3(int inv3) {
+        this.inv3 = inv3;
     }
 
-    public static int getInv4() {
+    public int getInv4() {
         return inv4;
     }
 
-    public static void setInv4(int inv4) {
-        Character.inv4 = inv4;
+    public void setInv4(int inv4) {
+        this.inv4 = inv4;
     }
 
-    public static int getInv5() {
+    public int getInv5() {
         return inv5;
     }
 
-    public static void setInv5(int inv5) {
-        Character.inv5 = inv5;
+    public void setInv5(int inv5) {
+        this.inv5 = inv5;
     }
 
-    public static int getInv6() {
+    public int getInv6() {
         return inv6;
     }
 
-    public static void setInv6(int inv6) {
-        Character.inv6 = inv6;
+    public void setInv6(int inv6) {
+        this.inv6 = inv6;
     }
 
-    public static int getInv7() {
+    public int getInv7() {
         return inv7;
     }
 
-    public static void setInv7(int inv7) {
-        Character.inv7 = inv7;
+    public void setInv7(int inv7) {
+        this.inv7 = inv7;
     }
 
-    public static int getInv8() {
+    public int getInv8() {
         return inv8;
     }
 
-    public static void setInv8(int inv8) {
-        Character.inv8 = inv8;
+    public void setInv8(int inv8) {
+        this.inv8 = inv8;
     }
+
+
 
 }

@@ -1,5 +1,7 @@
 package com.example.demo.view;
 
+import com.example.demo.controller.CharacterController;
+import com.example.demo.controller.CookieController;
 import com.example.demo.model.Character;
 
 import javax.inject.Named;
@@ -8,81 +10,82 @@ import javax.inject.Named;
 public class CharacterView {
 
     public String getName() {
-        return Character.getName();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getName();
     }
 
     public String getImg() {
-        return Character.getImg();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getImg();
     }
 
     public String getRace() {
-        return Character.getRace();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getRace();
     }
 
     public int getEnergy() {
-        return Character.getEnergy();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getEnergy();
     }
 
     public int getExp() {
-        return Character.getDex() + Character.getCon() + Character.getStr() + Character.getIntel();
+        return getDex() + getCon() + getIntel() + getStr();
     }
     public int getCash() {
-        return Character.getCash();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getCash();
     }
     public int getStr() {
-        return Character.getStr();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getStr();
     }
     public int getIntel() {
-        return Character.getIntel();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getIntel();
     }
     public int getCon() {
-        return Character.getCon();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getCon();
     }
     public int getDex() {
-        return Character.getDex();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getDex();
     }
     public int getHelmet() {
-        return Character.getHelmet();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getHelmet();
     }
     public int getGloves() {
-        return Character.getGloves();
+       return  CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getGloves();
     }
     public int getBoots() {
-        return Character.getBoots();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getBoots();
     }
     public int getOutfit() {
-        return Character.getOutfit();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getOutfit();
     }
     public int getWeapon() {
-        return Character.getWeapon();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getWeapon();
     }
     public int getJewellery() {
-        return Character.getJewellry();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getJewellry();
     }
     public int getInv1() {
-        return Character.getInv1();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getInv1();
     }
     public int getInv2() {
-        return Character.getInv2();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getInv2();
     }
     public int getInv3() {
-        return Character.getInv3();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getInv3();
     }
     public int getInv4() {
-        return Character.getInv4();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getInv4();
     }
     public int getInv5() {
-        return Character.getInv5();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getInv5();
     }
     public int getInv6() {
-        return Character.getInv6();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getInv6();
     }
     public int getInv7() {
-        return Character.getInv7();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getInv7();
     }
     public int getInv8() {
-        return Character.getInv8();
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getInv8();
     }
+
     public int getLevel() { return getExp()/10;}
 
 }

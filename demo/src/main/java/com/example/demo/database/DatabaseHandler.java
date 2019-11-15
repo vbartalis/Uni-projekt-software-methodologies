@@ -1,6 +1,8 @@
 package com.example.demo.database;
 
 
+import com.example.demo.controller.CharacterController;
+import com.example.demo.controller.CookieController;
 import com.example.demo.model.Character;
 import com.example.demo.view.LoginView;
 import org.springframework.aop.scope.ScopedObject;
@@ -18,6 +20,9 @@ public class DatabaseHandler {
     private static final String DB_SERVERNAME = "remotemysql.com";
     private static final Integer DB_PORT = 3306;
     private static Statement statement = null;
+    private static Connection connection = connect();
+
+
 
     private static String username;
     private static String password;
@@ -31,16 +36,18 @@ public class DatabaseHandler {
 
     public static Connection connect() {
         Connection conn = null;
+
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println("Couldn't find Driver class...");
         }
 
-        System.out.println("Trying to connect to the database...");
+        //System.out.println("Trying to connect to the database...");
         try {
             conn = DriverManager.getConnection("jdbc:mysql://" + DB_SERVERNAME + "/" + DB_DBNAME, DB_USERNAME, DB_PASSWORD);
-            System.out.println("Successfully connected to the database..");
+            //System.out.println("Successfully connected to the database..");
             return conn;
         } catch (SQLException e) {
             System.out.println("Couldn't connect to the database...");
@@ -161,7 +168,6 @@ public class DatabaseHandler {
     }
 
     public static void updateUser(String username, String whatToUpdate, Object newValue) {
-        Connection connection = connect();
 
         Statement statement = null;
         try {
@@ -181,11 +187,7 @@ public class DatabaseHandler {
             System.out.println("Couldn't update " + username + " TABLE's " + whatToUpdate + " field to " + newValue);
         }
 
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public static void dropTable(Connection conn, String tableName) {
@@ -216,32 +218,39 @@ public class DatabaseHandler {
             String sql = "SELECT * FROM " + username;
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
-                Character.setName(resultSet.getString("name"));
-                Character.setRace(resultSet.getString("race"));
-                Character.setImg(resultSet.getString("img"));
-                Character.setExp(resultSet.getInt("exp"));
-                Character.setCash(resultSet.getInt("cash"));
-                Character.setStr(resultSet.getInt("str"));
-                Character.setIntel(resultSet.getInt("intel"));
-                Character.setCon(resultSet.getInt("con"));
-                Character.setDex(resultSet.getInt("dex"));
-                Character.setHelmet(resultSet.getInt("helmet"));
-                Character.setGloves(resultSet.getInt("gloves"));
-                Character.setBoots(resultSet.getInt("boots"));
-                Character.setOutfit(resultSet.getInt("outfit"));
-                Character.setWeapon(resultSet.getInt("weapon"));
-                Character.setJewellry(resultSet.getInt("jewellery"));
-                Character.setInv1(resultSet.getInt("inv1"));
-                Character.setInv2(resultSet.getInt("inv2"));
-                Character.setInv3(resultSet.getInt("inv3"));
-                Character.setInv4(resultSet.getInt("inv4"));
-                Character.setInv5(resultSet.getInt("inv5"));
-                Character.setInv6(resultSet.getInt("inv6"));
-                Character.setInv7(resultSet.getInt("inv7"));
-                Character.setInv8(resultSet.getInt("inv8"));
+                System.out.println("Setting index " + CharacterController.getLoggedInUsersCounter() + " to " + resultSet.getString("name"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setName(resultSet.getString("name"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setRace(resultSet.getString("race"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setImg(resultSet.getString("img"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setExp(resultSet.getInt("exp"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setCash(resultSet.getInt("cash"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setStr(resultSet.getInt("str"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setIntel(resultSet.getInt("intel"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setCon(resultSet.getInt("con"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setDex(resultSet.getInt("dex"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setHelmet(resultSet.getInt("helmet"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setGloves(resultSet.getInt("gloves"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setBoots(resultSet.getInt("boots"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setOutfit(resultSet.getInt("outfit"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setWeapon(resultSet.getInt("weapon"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setJewellry(resultSet.getInt("jewellery"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv1(resultSet.getInt("inv1"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv2(resultSet.getInt("inv2"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv3(resultSet.getInt("inv3"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv4(resultSet.getInt("inv4"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv5(resultSet.getInt("inv5"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv6(resultSet.getInt("inv6"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv7(resultSet.getInt("inv7"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv8(resultSet.getInt("inv8"));
             }
         }
         catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            conn.close();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
