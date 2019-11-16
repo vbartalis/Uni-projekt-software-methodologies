@@ -5,31 +5,43 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
+      xmlns:p="http://primefaces.org/ui" xmlns:H="http://java.sun.com/jsf/html"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+
 >
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
         <p:layoutUnit position="center" class="transparentBackground" style="background-image: url('../resources/background/tavern.jpg');background-repeat: no-repeat; background-color: saddlebrown; background-size: cover">
-            <p:tabView style="margin-left: auto; margin-right: auto">
-                <p:tab title="Traveller">
-                    <p:panel>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget ultricies leo, vel lobortis nulla. Vestibulum ut urna purus.
-                        <p:button value="start"></p:button>
-                        <p:button value="give up"></p:button>
-                        <p:button value="finish"></p:button>
-                    </p:panel>
-                </p:tab>
-                <p:tab title="Merchant">
-                    <p:panel>
-                        Vestibulum ut urna purus. Quisque molestie tristique tempor. Suspendisse potenti.
-                    </p:panel>
-                </p:tab>
-                <p:tab title="Pirate">
-                    <p:panel>
-                        Donec in quam arcu. Praesent facilisis nisi in eleifend cursus. Morbi varius sapien sit amet tortor dignissim sagittis.
-                    </p:panel>
-                </p:tab>
-            </p:tabView>
+            <h:form>
+             <p:tabView style="margin-left: auto; margin-right: auto">
+                    <p:tab title="Traveller">
+                        <p:panel>
+                            #{questView.getQuest1().description} : <br/> Reward #{questView.getQuest1().reward}  <br/> Time: #{questView.getQuest1().workingMinutes} <br/> Finish time: #{questView.getQuest1().finishTime}
+                            <p:commandButton action="#{tavernController.startQuest(questView.getQuest1(), characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="start"/>
+                            <p:commandButton value="give up"/>
+                            <p:commandButton action="#{redirectView.redirect()}" actionListener="#{tavernController.finishQuest(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="finish"/>
+
+                        </p:panel>
+                    </p:tab>
+                    <p:tab title="Merchant">
+                        <p:panel>
+                            #{questView.getQuest2().description} : <br/> Reward #{questView.getQuest2().reward}  <br/> Time: #{questView.getQuest2().workingMinutes} <br/> Finish time: #{questView.getQuest2().finishTime}
+                            <p:commandButton action="#{tavernController.startQuest(questView.getQuest2(), characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="start"/>
+                            <p:commandButton value="give up"/>
+                            <p:commandButton action="#{redirectView.redirect()}" actionListener="#{tavernController.finishQuest(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="finish"/>
+                        </p:panel>
+                    </p:tab>
+                    <p:tab title="Pirate">
+                        <p:panel>
+                            #{questView.getQuest3().description} : <br/> Reward #{questView.getQuest3().reward}  <br/> Time: #{questView.getQuest3().workingMinutes} <br/> Finish time: #{questView.getQuest3().finishTime}
+                            <p:commandButton action="#{tavernController.startQuest(questView.getQuest3(), characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="start"/>
+                            <p:commandButton value="give up"/>
+                            <p:commandButton action="#{redirectView.redirect()}" actionListener="#{tavernController.finishQuest(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="finish"/>
+                        </p:panel>
+                    </p:tab>
+
+             </p:tabView>
+            </h:form>
 
         </p:layoutUnit>
     </ui:define>

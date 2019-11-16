@@ -43,11 +43,12 @@ public class CookieController {
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             Cookie[] cookies = request.getCookies();
 
-
-            for (Cookie cookie : cookies) {
-               // System.out.println("Name: " + cookie.getName() + "Value: " + cookie.getValue());
-                if (cookie.getName().equals("name")) {
-                    return cookie.getValue();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    // System.out.println("Name: " + cookie.getName() + "Value: " + cookie.getValue());
+                    if (cookie.getName().equals("name")) {
+                        return cookie.getValue();
+                    }
                 }
             }
 

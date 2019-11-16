@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
 
+import java.util.ArrayList;
+
 public class Character {
 
     private String name;
@@ -27,6 +29,59 @@ public class Character {
     private int inv6;
     private int inv7;
     private int inv8;
+    private Long work_end;
+    private Quest quest = null;
+    private ArrayList<Quest> randomizedQuests;
+    private int isWorking;
+    private int questId;
+    private int questReward;
+
+
+    public int isWorking() {
+        return isWorking;
+    }
+
+    public void setWorking(int working) {
+        isWorking = working;
+    }
+
+
+
+    public int getQuestId() {
+        return questId;
+    }
+
+    public void setQuestId(int questId) {
+        this.questId = questId;
+    }
+
+    public int getQuestReward() {
+        return questReward;
+    }
+
+    public void setQuestReward(int questReward) {
+        this.questReward = questReward;
+    }
+
+
+    public ArrayList<Quest> getRandomizedQuests() {
+        return randomizedQuests;
+    }
+
+    public void setRandomizedQuests(ArrayList<Quest> randomizedQuests) {
+
+        System.out.println("Setting quests for " + getName());
+        this.randomizedQuests = randomizedQuests;
+    }
+
+
+    public Quest getQuest() {
+        return quest;
+    }
+
+    public void setQuest(Quest quest) {
+        this.quest = quest;
+    }
 
 
     public String getName() {
@@ -221,6 +276,17 @@ public class Character {
         this.inv8 = inv8;
     }
 
+    public Long getWork_end() {
+        return work_end;
+    }
+
+    public void setWork_end(Long work_end) {
+        this.work_end = work_end;
+    }
+
+    public int getLevel() {
+        return getExp() / 10;
+    }
 
 
 }

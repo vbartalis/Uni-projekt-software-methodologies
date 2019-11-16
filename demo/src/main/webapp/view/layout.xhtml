@@ -21,7 +21,7 @@
                     <p:menu style="height: max-content">
                         <p:submenu>
                             <p:menuitem value="Character" url="character.jsf" icon="pi pi-user"/>
-                            <p:menuitem value="Tavern" url="tavern.jsf" icon="pi pi-comments"/>
+                            <p:menuitem action="#{databaseHandler.getAllQuestsFromDatabase()}"  value="Tavern" url="tavern.jsf" icon="pi pi-comments"/>
                             <p:menuitem value="Market" url="market.jsf" icon="pi pi-shopping-cart"/>
                             <p:menuitem value="Arena" url="arena.jsf" icon="pi pi-users"/>
                         </p:submenu>

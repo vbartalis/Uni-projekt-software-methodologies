@@ -3,8 +3,10 @@ package com.example.demo.view;
 import com.example.demo.controller.CharacterController;
 import com.example.demo.controller.CookieController;
 import com.example.demo.model.Character;
+import com.example.demo.model.Quest;
 
 import javax.inject.Named;
+import java.util.ArrayList;
 
 @Named
 public class CharacterView {
@@ -84,6 +86,10 @@ public class CharacterView {
     }
     public int getInv8() {
         return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getInv8();
+    }
+
+    public ArrayList<Quest> getRandomizedQuests() {
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getRandomizedQuests();
     }
 
     public int getLevel() { return getExp()/10;}

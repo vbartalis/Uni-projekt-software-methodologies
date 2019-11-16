@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.controller.QuestController;
+import com.example.demo.database.DatabaseHandler;
 import com.sun.faces.config.ConfigureListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,11 +11,15 @@ import org.springframework.context.annotation.Bean;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.Servlet;
+import javax.xml.crypto.Data;
 
 @SpringBootApplication
 public class DemoApplication {
 
 	public static void main(String[] args) {
+
+		QuestController.setQuests(DatabaseHandler.getAllQuestsFromDatabase());
+
 		SpringApplication.run(DemoApplication.class, args);
 	}
 

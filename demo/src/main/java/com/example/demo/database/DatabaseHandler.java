@@ -3,13 +3,16 @@ package com.example.demo.database;
 
 import com.example.demo.controller.CharacterController;
 import com.example.demo.controller.CookieController;
+import com.example.demo.controller.QuestController;
 import com.example.demo.model.Character;
+import com.example.demo.model.Quest;
 import com.example.demo.view.LoginView;
 import org.springframework.aop.scope.ScopedObject;
 
 import javax.annotation.ManagedBean;
 import javax.inject.Named;
 import java.sql.*;
+import java.util.ArrayList;
 
 @Named
 public class DatabaseHandler {
@@ -87,6 +90,10 @@ public class DatabaseHandler {
                 "'-1'," +
                 "'-1'," +
                 "'-1'," +
+                "'-1', " +
+                "'-1', " +
+                "'-1', " +
+                "'-1'," +
                 "'-1')";
 
 
@@ -130,7 +137,11 @@ public class DatabaseHandler {
                 "inv5 INT," +
                 "inv6 INT," +
                 "inv7 INT," +
-                "inv8 INT)";
+                "inv8 INT," +
+                "is_working INT, " +
+                "work_end INT, " +
+                "quest_id INT, " +
+                "quest_reward INT)";
 
         try {
             statement.executeUpdate(sql);
@@ -242,6 +253,10 @@ public class DatabaseHandler {
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv6(resultSet.getInt("inv6"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv7(resultSet.getInt("inv7"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv8(resultSet.getInt("inv8"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setWork_end(resultSet.getLong("work_end"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setWorking(resultSet.getInt("is_working"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setQuestId(resultSet.getInt("quest_id"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setQuestReward(resultSet.getInt("quest_reward"));
             }
         }
         catch(SQLException e) {
@@ -253,12 +268,65 @@ public class DatabaseHandler {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("ideáig eljutottunk");
+
+        Character character = CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter());
+        QuestController.randomizeQuests(character);
+
+
     }
 
+    public static void deleteAllUserTable(Connection connection) {
+        ResultSet resultSet = null;
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            System.out.println("Something wente wrong while creating a statement to get the users");
+        }
 
+        String sql = "SELECT * FROM USERS";
+        try {
+            resultSet = statement.executeQuery(sql);
+        } catch (SQLException e) {
+            System.out.println("Something went wrong while executing SELECT * FROM USERS query");
+            e.printStackTrace();
+        }
+
+        try {
+            while (resultSet.next()) {
+                dropTable(connection, resultSet.getString("username"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Something went wrong while dropping user table");
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<Quest> getAllQuestsFromDatabase() {
+        ArrayList<Quest> quests = new ArrayList<Quest>();
+        Connection connection = connect();
+        try {
+            statement = connection.createStatement();
+            String sql = "SELECT * FROM QUESTS";
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                quests.add(new Quest(resultSet.getInt("id"), resultSet.getString("description")));
+            }
+
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return quests;
+    }
 
     public static void main(String[] args) {
         Connection connection = connect();
+        deleteAllUserTable(connection);
+        dropTable(connection, "USERS");
         createUsersTable(connection);
 
 
