@@ -42,44 +42,28 @@ public class QuestController {
         }
 
         else {
-                Quest quest1 = new Quest(quests.get(0).getId(), quests.get(0).getDescription());
-                quest1.setReward(generateReward(character));
-                workingMinute = generateWorkingMinute(character);
-                quest1.setWorkingMinutes(workingMinute);
-                workEnd = System.currentTimeMillis() + workingMinute * 60000;
-                quest1.setFinishTime(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date(workEnd)));
-                random.add(quest1);
+                random.add(generateQuest(quests.get(0) ,character));
         }
 
-        Quest quest2 = new Quest(quests.get(1).getId(), quests.get(1).getDescription());
-        quest2.setReward(generateReward(character));
-        workingMinute = generateWorkingMinute(character);
-        quest2.setWorkingMinutes(workingMinute);
-        workEnd = System.currentTimeMillis() + workingMinute * 60000;
-        quest2.setFinishTime( new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date(workEnd)));
-        random.add(quest2);
 
-        Quest quest3 = new Quest(quests.get(2).getId(), quests.get(2).getDescription());
-        quest3.setReward(generateReward(character));
-        workingMinute = generateWorkingMinute(character);
-        quest3.setWorkingMinutes(workingMinute);
-        workEnd = System.currentTimeMillis() + workingMinute * 60000;
-        quest3.setFinishTime( new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date(workEnd)));
-        random.add(quest3);
+        random.add(generateQuest(quests.get(1), character));
+        random.add(generateQuest(quests.get(2), character));
 
         character.setRandomizedQuests(random);
 
         System.out.println("Users: ");
         int counter;
         for (Character character1: CharacterController.getLoggedInUsers()) {
-            System.out.println("Character name: " + character1.getName());
-            System.out.println("quests:");
-            counter = 0;
-            for (Quest quest4: character1.getRandomizedQuests()) {
-                System.out.println(counter + ": " + quest4.getDescription() + ": " + quest4.getReward());
-                counter++;
+            if (character1 != null) {
+                System.out.println("Character name: " + character1.getName());
+                System.out.println("quests:");
+                counter = 0;
+                for (Quest quest4 : character1.getRandomizedQuests()) {
+                    System.out.println(counter + ": " + quest4.getDescription() + ": " + quest4.getReward());
+                    counter++;
+                }
+                System.out.println("_______________________________________________");
             }
-            System.out.println("_______________________________________________");
         }
 
     }
@@ -102,6 +86,16 @@ public class QuestController {
         }
 
         return null;
+    }
+
+    public static Quest generateQuest(Quest quest, Character character) {
+        quest.setReward(generateReward(character));
+        int workingMinute = generateWorkingMinute(character);
+        quest.setWorkingMinutes(workingMinute);
+        long workEnd = System.currentTimeMillis() + workingMinute * 60000;
+        quest.setFinishTime( new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date(workEnd)));
+
+        return quest;
     }
 
 

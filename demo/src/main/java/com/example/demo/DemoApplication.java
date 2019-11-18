@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.controller.ItemController;
 import com.example.demo.controller.QuestController;
 import com.example.demo.database.DatabaseHandler;
 import com.sun.faces.config.ConfigureListener;
@@ -18,6 +19,7 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 
+		ItemController.setItems(DatabaseHandler.getAllItemsFromDatabase());
 		QuestController.setQuests(DatabaseHandler.getAllQuestsFromDatabase());
 
 		SpringApplication.run(DemoApplication.class, args);

@@ -17,10 +17,10 @@ public class Character {
     private int dex;
     private int helmet;
     private int gloves;
-    private int boots;
+    private int jew2;
     private int outfit;
     private int weapon;
-    private int jewellry;
+    private int jew1;
     private int inv1;
     private int inv2;
     private int inv3;
@@ -83,6 +83,13 @@ public class Character {
         this.quest = quest;
     }
 
+    public int getJew2() {
+        return jew2;
+    }
+
+    public void setJew2(int jew2) {
+        this.jew2 = jew2;
+    }
 
     public String getName() {
         return name;
@@ -180,14 +187,6 @@ public class Character {
         this.gloves = gloves;
     }
 
-    public int getBoots() {
-        return boots;
-    }
-
-    public void setBoots(int boots) {
-        this.boots = boots;
-    }
-
     public int getOutfit() {
         return outfit;
     }
@@ -204,12 +203,12 @@ public class Character {
         this.weapon = weapon;
     }
 
-    public int getJewellry() {
-        return jewellry;
+    public int getJew1() {
+        return jew1;
     }
 
-    public void setJewellry(int jewellry) {
-        this.jewellry = jewellry;
+    public void setJew1(int jew1) {
+        this.jew1 = jew1;
     }
 
     public int getInv1() {

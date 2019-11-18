@@ -5,6 +5,7 @@ import com.example.demo.controller.CharacterController;
 import com.example.demo.controller.CookieController;
 import com.example.demo.controller.QuestController;
 import com.example.demo.model.Character;
+import com.example.demo.model.Item;
 import com.example.demo.model.Quest;
 import com.example.demo.view.LoginView;
 import org.springframework.aop.scope.ScopedObject;
@@ -58,7 +59,7 @@ public class DatabaseHandler {
         }
     }
 
-    private static void insertBasicDataIntoNewUser(Connection conn, String username) {
+    public static void insertBasicDataIntoNewUser(Connection conn, String username) {
         try {
             statement = conn.createStatement();
         } catch (SQLException e) {
@@ -66,7 +67,7 @@ public class DatabaseHandler {
             e.printStackTrace();
         }
 
-        String sql = "INSERT INTO " + username + " VALUES(" +
+        String sql = "INSERT INTO CHARACTERS VALUES(" +
                 "'" + username + "'," +
                 "'null'," +
                 "'null'," +
@@ -126,10 +127,10 @@ public class DatabaseHandler {
                 "dex INT NOT NULL DEFAULT 10," +
                 "helmet INT," +
                 "gloves INT," +
-                "boots INT," +
                 "outfit INT," +
                 "weapon INT," +
-                "jewellery INT," +
+                "jewellery2 INT," +
+                "jewellery1 INT," +
                 "inv1 INT," +
                 "inv2 INT," +
                 "inv3 INT," +
@@ -178,24 +179,70 @@ public class DatabaseHandler {
         }
     }
 
+    public static void createCharactersTable(Connection conn) {
+        System.out.println("Trying to create new CHARACTERS table...");
+        try {
+            statement = conn.createStatement();
+            String sql =  "CREATE TABLE IF NOT EXISTS CHARACTERS (" +
+                    "name VARCHAR(15) PRIMARY KEY NOT NULL DEFAULT " + "'" + username + "'"+ ","+
+                    "race VARCHAR(30) NOT NULL," +
+                    "img VARCHAR(100) NOT NULL," +
+                    "energy INT NOT NULL," +
+                    "exp INT NOT NULL DEFAULT 0," +
+                    "cash INT NOT NULL DEFAULT 0, " +
+                    "str INT NOT NULL DEFAULT 10," +
+                    "intel INT NOT NULL DEFAULT 10," +
+                    "con INT NOT NULL DEFAULT 10," +
+                    "dex INT NOT NULL DEFAULT 10," +
+                    "helmet INT," +
+                    "gloves INT," +
+                    "boots INT," +
+                    "outfit INT," +
+                    "weapon INT," +
+                    "jewellery INT," +
+                    "inv1 INT," +
+                    "inv2 INT," +
+                    "inv3 INT," +
+                    "inv4 INT," +
+                    "inv5 INT," +
+                    "inv6 INT," +
+                    "inv7 INT," +
+                    "inv8 INT," +
+                    "is_working INT, " +
+                    "work_end INT, " +
+                    "quest_id INT, " +
+                    "quest_reward INT)";
+
+            statement.executeUpdate(sql);
+            System.out.println("Successfully created CHARACTER table");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Something went wrong while creating a new CHARACTER table");
+        }
+
+    }
+
     public static void updateUser(String username, String whatToUpdate, Object newValue) {
 
-        Statement statement = null;
+        PreparedStatement statement = null;
         try {
-            statement = connection.createStatement();
+            statement = connection.prepareStatement("UPDATE CHARACTERS SET " + whatToUpdate + " = " + newValue + " WHERE name = ?");
+            //statement.setString(1, whatToUpdate);
+            //statement.setObject(2, newValue);
+            statement.setString(1, username);
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Something went wrong while trying to create statement to update the user..");
         }
 
-        String sql = "UPDATE " + username + " SET " + whatToUpdate + " = " + newValue;
-        System.out.println("Trying to update " + username + " TABLE's " + whatToUpdate + " field to " + newValue);
+        System.out.println("Trying to update CHARACTERS TABLE " + whatToUpdate + " field to " + newValue + " WHERE USERNAME IS " + username);
         try {
-            statement.executeUpdate(sql);
-            System.out.println("Successfully updated " + username + " TABLE's " + whatToUpdate + " field to " + newValue);
+            statement.executeUpdate();
+            System.out.println("Successfully updated CHARACHERS TABLE " + whatToUpdate + " field to " + newValue + " WHERE USERNAME IS " + username);
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Couldn't update " + username + " TABLE's " + whatToUpdate + " field to " + newValue);
+            System.out.println("Couldn't update CHARACTERS TABLE " + whatToUpdate + " field to " + newValue + " WHERE USERNAME IS " + username);
         }
 
 
@@ -223,11 +270,11 @@ public class DatabaseHandler {
     public static void saveUserData(String username) {
         Connection conn = DatabaseHandler.connect();
         ResultSet resultSet;
-        Statement statement;
+        PreparedStatement statement;
         try {
-            statement = conn.createStatement();
-            String sql = "SELECT * FROM " + username;
-            resultSet = statement.executeQuery(sql);
+            statement = conn.prepareStatement("SELECT * FROM CHARACTERS WHERE name = ?");
+            statement.setString(1, username);
+            resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 System.out.println("Setting index " + CharacterController.getLoggedInUsersCounter() + " to " + resultSet.getString("name"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setName(resultSet.getString("name"));
@@ -241,10 +288,10 @@ public class DatabaseHandler {
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setDex(resultSet.getInt("dex"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setHelmet(resultSet.getInt("helmet"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setGloves(resultSet.getInt("gloves"));
-                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setBoots(resultSet.getInt("boots"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setJew2(resultSet.getInt("jewellery2"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setOutfit(resultSet.getInt("outfit"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setWeapon(resultSet.getInt("weapon"));
-                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setJewellry(resultSet.getInt("jewellery"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setJew1(resultSet.getInt("jewellery1"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv1(resultSet.getInt("inv1"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv2(resultSet.getInt("inv2"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv3(resultSet.getInt("inv3"));
@@ -268,7 +315,17 @@ public class DatabaseHandler {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("ideáig eljutottunk");
+
+        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv1(4);
+        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv2(6);
+        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv3(9);
+        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv4(12);
+        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv5(15);
+        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv6(18);
+
+
+
+
 
         Character character = CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter());
         QuestController.randomizeQuests(character);
@@ -323,11 +380,41 @@ public class DatabaseHandler {
         return quests;
     }
 
+    public static ArrayList<Item> getAllItemsFromDatabase() {
+        ArrayList<Item> items = new ArrayList<>();
+        Connection connection = connect();
+        try {
+            statement = connection.createStatement();
+            String sql = "SELECT * FROM items";
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                items.add(new Item(
+                   resultSet.getInt("item_id"),
+                   resultSet.getString("name"),
+                   resultSet.getInt("strength"),
+                   resultSet.getInt("intelligence"),
+                   resultSet.getInt("dexterity"),
+                   resultSet.getInt("constitution"),
+                   resultSet.getInt("item_type"),
+                   resultSet.getInt("price")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return items;
+    }
+
+
     public static void main(String[] args) {
         Connection connection = connect();
         deleteAllUserTable(connection);
         dropTable(connection, "USERS");
+        dropTable(connection, "CHARACTERS");
         createUsersTable(connection);
+        createCharactersTable(connection);
 
 
 

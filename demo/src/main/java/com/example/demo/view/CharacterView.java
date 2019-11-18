@@ -51,8 +51,8 @@ public class CharacterView {
     public int getGloves() {
        return  CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getGloves();
     }
-    public int getBoots() {
-        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getBoots();
+    public int getJew2() {
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getJew2();
     }
     public int getOutfit() {
         return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getOutfit();
@@ -60,8 +60,8 @@ public class CharacterView {
     public int getWeapon() {
         return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getWeapon();
     }
-    public int getJewellery() {
-        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getJewellry();
+    public int getJew1() {
+        return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getJew1();
     }
     public int getInv1() {
         return CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()). getInv1();

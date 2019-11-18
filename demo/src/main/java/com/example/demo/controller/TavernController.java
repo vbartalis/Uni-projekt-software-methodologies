@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.database.DatabaseHandler;
 import com.example.demo.model.Character;
 import com.example.demo.model.Quest;
+import org.hibernate.dialect.Database;
 
 import javax.inject.Named;
 import java.text.SimpleDateFormat;
@@ -46,9 +47,13 @@ public class TavernController {
 
             System.out.println(character.getName() + " successfully finished his quest");
             character.setWorking(-1);
+
             int newCash = character.getCash() + character.getQuestReward();
             character.setCash(newCash);
             DatabaseHandler.updateUser(character.getName(), "cash", newCash);
+            DatabaseHandler.updateUser(character.getName(), "quest_reward", 0);
+            DatabaseHandler.updateUser(character.getName(), "is_working", -1);
+            DatabaseHandler.updateUser(character.getName(), "quest_id", -1);
             RedirectHandler.setRedirectSite("character");
 
             QuestController.randomizeQuests(character);

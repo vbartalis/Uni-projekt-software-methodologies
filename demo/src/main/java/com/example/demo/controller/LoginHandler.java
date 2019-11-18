@@ -60,8 +60,11 @@ public class LoginHandler {
 
                         System.out.println("Current logged in users");
                         for (Character character1 : CharacterController.getLoggedInUsers()) {
-                            System.out.println(character1.getName());
+                            if (character1 != null)
+                                System.out.println(character1.getName());
                         }
+                        System.out.println(CharacterController.getLoggedInUsersCounter());
+
 
                         DatabaseHandler.saveUserData(CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).getName());
                         System.out.println("Successfully logged in! Welcome " + username + "!");

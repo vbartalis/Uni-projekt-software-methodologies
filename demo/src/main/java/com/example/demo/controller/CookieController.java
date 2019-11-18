@@ -59,10 +59,8 @@ public class CookieController {
 
         public static int getLoggedInIndex() {
 
-
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             Cookie[] cookies = request.getCookies();
-
 
             for (Cookie cookie : cookies) {
                 //System.out.println("Name: " + cookie.getName() + " Value: " + cookie.getValue());
@@ -73,7 +71,20 @@ public class CookieController {
             }
 
             return -1;
+        }
 
+        public static void removeCookie(String name) {
+            HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+            HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+            Cookie[] cookies = request.getCookies();
+
+            for(Cookie cookie: cookies) {
+                if (cookie.getName().equals(name)) {
+                    System.out.println("Deleting cookie " + cookie.getName() + " which value is " + cookie.getValue());
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                }
+            }
         }
     }
 

@@ -12,10 +12,10 @@ public class CharacterController {
 
     private static ArrayList<Character> loggedInUsers = new ArrayList<>();
 
-
     public static int getLoggedInUsersCounter() {
         return LoginHandler.getLoginCounter() + RegisterHandler.getRegisterCounter();
     }
+
     public static ArrayList<Character> getLoggedInUsers() {
         return loggedInUsers;
     }

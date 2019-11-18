@@ -37,7 +37,9 @@ public class RegisterHandler {
                 CookieController.setCookie("id", String.valueOf(CharacterController.getLoggedInUsersCounter()), -1);
 
 
-                DatabaseHandler.createNewUser(conn, username);
+                //DatabaseHandler.createNewUser(conn, username);
+
+                DatabaseHandler.insertBasicDataIntoNewUser(conn, username);
 
                 Character character = new Character();
                 character.setName(username);
@@ -45,7 +47,8 @@ public class RegisterHandler {
 
                 System.out.println("Current logged in users");
                 for (Character character1: CharacterController.getLoggedInUsers()) {
-                    System.out.println(character1.getName());
+                    if (character1 != null)
+                        System.out.println(character1.getName());
                 }
 
 

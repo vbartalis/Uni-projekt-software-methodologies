@@ -21,7 +21,7 @@
                     <p:menu style="height: max-content">
                         <p:submenu>
                             <p:menuitem value="Character" url="character.jsf" icon="pi pi-user"/>
-                            <p:menuitem action="#{databaseHandler.getAllQuestsFromDatabase()}"  value="Tavern" url="tavern.jsf" icon="pi pi-comments"/>
+                            <p:menuitem value="Tavern" url="tavern.jsf" icon="pi pi-comments"/>
                             <p:menuitem value="Market" url="market.jsf" icon="pi pi-shopping-cart"/>
                             <p:menuitem value="Arena" url="arena.jsf" icon="pi pi-users"/>
                         </p:submenu>
@@ -33,12 +33,14 @@
                         <p:submenu>
                             <p:menuitem value="Luck" url="luck.jsf" icon="pi pi-star"/>
                         </p:submenu>
-                        <p:submenu>
-                            <p:menuitem value="Log Out" url="../login.jsf"/>
-                        </p:submenu>
                     </p:menu>
+                    <h:form>
+                        <p:commandButton value="Log Out" actionListener="#{logOutController.logOut()}"  action="login" />
+                    </h:form>
                 </p:layoutUnit>
+
                 <ui:insert name="content"/>
+
             </p:layout>
 
 
