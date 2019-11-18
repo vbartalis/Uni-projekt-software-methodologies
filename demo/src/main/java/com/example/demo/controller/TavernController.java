@@ -22,10 +22,11 @@ public class TavernController {
     public void startQuest(Quest quest, Character character) {
 
         System.out.println("Starting quest if it doesn't exist....");
+        System.out.println("is wokring: " + character.isWorking());
 
-        if (character.isWorking() < 0) {
+        if (character.isWorking() <= 0) {
 
-            System.out.println(character.getName() +  " is tarting quest " + quest.getDescription());
+            System.out.println(character.getName() +  " is starting quest " + quest.getDescription());
             System.out.println("Working minutes: " + quest.getWorkingMinutes());
             System.out.println("Reward: " + quest.getReward());
 
@@ -42,6 +43,10 @@ public class TavernController {
 
     public void finishQuest(Character character) {
         RedirectHandler.setRedirectSite("tavern");
+        System.out.println("Current user: " + CookieController.getNameStoredInCookie());
+
+        System.out.println("Work end: " + character.getWork_end());
+        System.out.println("Is working: " + character.isWorking());
 
         if (character.getWork_end() < System.currentTimeMillis() && character.isWorking() > 0) {
 
