@@ -1,0 +1,432 @@
+2019-11-18 13:26:04.234  INFO 11088 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on zengovari with PID 11088 (/home/zengovari/jasd/projekt-demo/demo/src/main/webapp/WEB-INF/classes started by zengovari in /home/zengovari/jasd/projekt-demo/demo)
+2019-11-18 13:26:04.236  INFO 11088 --- [restartedMain] com.example.demo.DemoApplication         : The following profiles are active: dev
+2019-11-18 13:26:04.287  INFO 11088 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+2019-11-18 13:26:04.287  INFO 11088 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-11-18 13:26:04.287  INFO 11088 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-11-18 13:26:04.808  INFO 11088 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-18 13:26:04.828  INFO 11088 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2019-11-18 13:26:05.110  INFO 11088 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-18 13:26:05.345  INFO 11088 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9091 (http)
+2019-11-18 13:26:05.353  INFO 11088 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-18 13:26:05.354  INFO 11088 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-18 13:26:05.599  INFO 11088 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-11-18 13:26:05.613  INFO 11088 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-18 13:26:05.614  INFO 11088 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1326 ms
+2019-11-18 13:26:05.663  INFO 11088 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-11-18 13:26:05.738  INFO 11088 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-11-18 13:26:05.743  INFO 11088 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2019-11-18 13:26:05.804  INFO 11088 --- [restartedMain] j.e.resource.webcontainer.jsf.config     : Initializing Mojarra 2.2.20 ( 20190731-0757 59754ac80c05d61848a08939ddd11a324f2345ac) for context ''
+2019-11-18 13:26:05.927  INFO 11088 --- [restartedMain] j.e.r.webcontainer.jsf.application       : JSF1048: PostConstruct/PreDestroy annotations present.  ManagedBeans methods marked with these annotations will have said annotations processed.
+2019-11-18 13:26:06.499  INFO 11088 --- [restartedMain] .w.PostConstructApplicationEventListener : Running on PrimeFaces 7.0
+2019-11-18 13:26:06.499  INFO 11088 --- [restartedMain] .a.PostConstructApplicationEventListener : Running on PrimeFaces Extensions 7.0.2
+2019-11-18 13:26:06.568  INFO 11088 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-11-18 13:26:06.607  INFO 11088 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.6.Final}
+2019-11-18 13:26:06.682  INFO 11088 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-11-18 13:26:06.747  INFO 11088 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-11-18 13:26:06.918  INFO 11088 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-11-18 13:26:06.922  INFO 11088 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-11-18 13:26:06.934  INFO 11088 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-11-18 13:26:07.275  WARN 11088 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-11-18 13:26:07.377  INFO 11088 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-18 13:26:07.561  INFO 11088 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9091 (http) with context path ''
+2019-11-18 13:26:07.565  INFO 11088 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 3.709 seconds (JVM running for 6.759)
+2019-11-18 13:26:35.072  INFO 11088 --- [http-nio-9091-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-18 13:26:35.073  INFO 11088 --- [http-nio-9091-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-11-18 13:26:35.093  INFO 11088 --- [http-nio-9091-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 20 ms
+2019-11-18 13:26:35.202  WARN 11088 --- [http-nio-9091-exec-5] j.e.r.webcontainer.jsf.application       : JSF1064: Unable to find or serve resource, primeicons/primeicons.ttf, from library, primefaces.
+2019-11-18 13:26:35.211  WARN 11088 --- [http-nio-9091-exec-5] j.e.r.webcontainer.jsf.application       : 
+
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: Broken pipe
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:351) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:776) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.append(OutputBuffer.java:681) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:386) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:364) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:96) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.nio.channels.Channels$WritableByteChannelImpl.write(Channels.java:464) ~[na:na]
+	at com.sun.faces.application.resource.ResourceHandlerImpl.handleResourceRequest(ResourceHandlerImpl.java:358) ~[jsf-impl-2.2.20.jar:2.2.20]
+	at javax.faces.application.ResourceHandlerWrapper.handleResourceRequest(ResourceHandlerWrapper.java:153) ~[jsf-api-2.2.20.jar:2.2]
+	at org.primefaces.application.resource.PrimeResourceHandler.handleResourceRequest(PrimeResourceHandler.java:96) ~[primefaces-7.0.jar:7.0]
+	at javax.faces.application.ResourceHandlerWrapper.handleResourceRequest(ResourceHandlerWrapper.java:153) ~[jsf-api-2.2.20.jar:2.2]
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:655) ~[jsf-api-2.2.20.jar:2.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.io.IOException: Broken pipe
+	at java.base/sun.nio.ch.FileDispatcherImpl.write0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:47) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:113) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:79) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:50) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:466) ~[na:na]
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:138) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:101) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:152) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1251) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:801) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:571) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:509) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:538) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:112) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:190) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.Response.doWrite(Response.java:601) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:339) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	... 44 common frames omitted
+
+2019-11-18 13:27:41.218  WARN 11088 --- [http-nio-9091-exec-2] j.e.r.webcontainer.jsf.application       : JSF1064: Unable to find or serve resource, 4.png, from library, items.
+2019-11-18 13:27:41.220  WARN 11088 --- [http-nio-9091-exec-2] j.e.r.webcontainer.jsf.application       : 
+
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: Broken pipe
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:351) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:776) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.append(OutputBuffer.java:681) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:386) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:364) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:96) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.nio.channels.Channels$WritableByteChannelImpl.write(Channels.java:464) ~[na:na]
+	at com.sun.faces.application.resource.ResourceHandlerImpl.handleResourceRequest(ResourceHandlerImpl.java:358) ~[jsf-impl-2.2.20.jar:2.2.20]
+	at javax.faces.application.ResourceHandlerWrapper.handleResourceRequest(ResourceHandlerWrapper.java:153) ~[jsf-api-2.2.20.jar:2.2]
+	at org.primefaces.application.resource.PrimeResourceHandler.handleResourceRequest(PrimeResourceHandler.java:96) ~[primefaces-7.0.jar:7.0]
+	at javax.faces.application.ResourceHandlerWrapper.handleResourceRequest(ResourceHandlerWrapper.java:153) ~[jsf-api-2.2.20.jar:2.2]
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:655) ~[jsf-api-2.2.20.jar:2.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.io.IOException: Broken pipe
+	at java.base/sun.nio.ch.FileDispatcherImpl.write0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:47) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:113) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:79) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:50) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:466) ~[na:na]
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:138) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:101) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:152) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1251) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:801) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:571) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:509) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:538) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:112) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:190) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.Response.doWrite(Response.java:601) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:339) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	... 44 common frames omitted
+
+2019-11-18 13:27:41.223  WARN 11088 --- [http-nio-9091-exec-1] j.e.r.webcontainer.jsf.application       : JSF1064: Unable to find or serve resource, terran.png, from library, characters.
+2019-11-18 13:27:41.225  WARN 11088 --- [http-nio-9091-exec-1] j.e.r.webcontainer.jsf.application       : 
+
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: Broken pipe
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:351) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:776) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.append(OutputBuffer.java:681) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:386) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:364) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:96) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.nio.channels.Channels$WritableByteChannelImpl.write(Channels.java:464) ~[na:na]
+	at com.sun.faces.application.resource.ResourceHandlerImpl.handleResourceRequest(ResourceHandlerImpl.java:358) ~[jsf-impl-2.2.20.jar:2.2.20]
+	at javax.faces.application.ResourceHandlerWrapper.handleResourceRequest(ResourceHandlerWrapper.java:153) ~[jsf-api-2.2.20.jar:2.2]
+	at org.primefaces.application.resource.PrimeResourceHandler.handleResourceRequest(PrimeResourceHandler.java:96) ~[primefaces-7.0.jar:7.0]
+	at javax.faces.application.ResourceHandlerWrapper.handleResourceRequest(ResourceHandlerWrapper.java:153) ~[jsf-api-2.2.20.jar:2.2]
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:655) ~[jsf-api-2.2.20.jar:2.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.io.IOException: Broken pipe
+	at java.base/sun.nio.ch.FileDispatcherImpl.write0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:47) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:113) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:79) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:50) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:466) ~[na:na]
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:138) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:101) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:152) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1251) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:801) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:571) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:509) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:538) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:112) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:190) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.Response.doWrite(Response.java:601) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:339) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	... 44 common frames omitted
+
+2019-11-18 14:00:09.394  INFO 11088 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-18 14:00:09.398  INFO 11088 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-11-18 14:00:09.399  INFO 11088 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-11-18 14:00:09.460  WARN 11088 --- [SpringContextShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-199]
+2019-11-18 14:00:09.462  INFO 11088 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-11-18 14:00:09.474  INFO 11088 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-11-18 14:05:14.127  INFO 12514 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on zengovari with PID 12514 (/home/zengovari/jasd/projekt-demo/demo/src/main/webapp/WEB-INF/classes started by zengovari in /home/zengovari/jasd/projekt-demo/demo)
+2019-11-18 14:05:14.131  INFO 12514 --- [restartedMain] com.example.demo.DemoApplication         : The following profiles are active: dev
+2019-11-18 14:05:14.208  INFO 12514 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/home/zengovari/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+2019-11-18 14:05:14.209  INFO 12514 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-11-18 14:05:14.209  INFO 12514 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-11-18 14:05:15.086  INFO 12514 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-18 14:05:15.112  INFO 12514 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2019-11-18 14:05:15.473  INFO 12514 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-11-18 14:05:15.811  INFO 12514 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9091 (http)
+2019-11-18 14:05:15.823  INFO 12514 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-18 14:05:15.824  INFO 12514 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-18 14:05:16.258  INFO 12514 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-11-18 14:05:16.278  INFO 12514 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-18 14:05:16.279  INFO 12514 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2069 ms
+2019-11-18 14:05:16.347  INFO 12514 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-11-18 14:05:16.458  INFO 12514 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-11-18 14:05:16.465  INFO 12514 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2019-11-18 14:05:16.556  INFO 12514 --- [restartedMain] j.e.resource.webcontainer.jsf.config     : Initializing Mojarra 2.2.20 ( 20190731-0757 59754ac80c05d61848a08939ddd11a324f2345ac) for context ''
+2019-11-18 14:05:16.728  INFO 12514 --- [restartedMain] j.e.r.webcontainer.jsf.application       : JSF1048: PostConstruct/PreDestroy annotations present.  ManagedBeans methods marked with these annotations will have said annotations processed.
+2019-11-18 14:05:17.543  INFO 12514 --- [restartedMain] .w.PostConstructApplicationEventListener : Running on PrimeFaces 7.0
+2019-11-18 14:05:17.543  INFO 12514 --- [restartedMain] .a.PostConstructApplicationEventListener : Running on PrimeFaces Extensions 7.0.2
+2019-11-18 14:05:17.638  INFO 12514 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-11-18 14:05:17.705  INFO 12514 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.6.Final}
+2019-11-18 14:05:17.824  INFO 12514 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-11-18 14:05:17.926  INFO 12514 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-11-18 14:05:18.184  INFO 12514 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-11-18 14:05:18.191  INFO 12514 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-11-18 14:05:18.210  INFO 12514 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-11-18 14:05:18.646  WARN 12514 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-11-18 14:05:18.809  INFO 12514 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-18 14:05:19.082  INFO 12514 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9091 (http) with context path ''
+2019-11-18 14:05:19.086  INFO 12514 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 5.729 seconds (JVM running for 9.648)
+2019-11-18 14:05:39.817  INFO 12514 --- [http-nio-9091-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-18 14:05:39.818  INFO 12514 --- [http-nio-9091-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-11-18 14:05:39.830  INFO 12514 --- [http-nio-9091-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2019-11-18 14:05:51.132  WARN 12514 --- [http-nio-9091-exec-6] j.e.r.webcontainer.jsf.application       : JSF1064: Unable to find or serve resource, theme.css, from library, primefaces-aristo.
+2019-11-18 14:05:51.140  WARN 12514 --- [http-nio-9091-exec-6] j.e.r.webcontainer.jsf.application       : 
+
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: Broken pipe
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:351) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:776) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.append(OutputBuffer.java:681) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:386) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:364) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:96) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.nio.channels.Channels$WritableByteChannelImpl.write(Channels.java:464) ~[na:na]
+	at com.sun.faces.application.resource.ResourceHandlerImpl.handleResourceRequest(ResourceHandlerImpl.java:358) ~[jsf-impl-2.2.20.jar:2.2.20]
+	at javax.faces.application.ResourceHandlerWrapper.handleResourceRequest(ResourceHandlerWrapper.java:153) ~[jsf-api-2.2.20.jar:2.2]
+	at org.primefaces.application.resource.PrimeResourceHandler.handleResourceRequest(PrimeResourceHandler.java:96) ~[primefaces-7.0.jar:7.0]
+	at javax.faces.application.ResourceHandlerWrapper.handleResourceRequest(ResourceHandlerWrapper.java:153) ~[jsf-api-2.2.20.jar:2.2]
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:655) ~[jsf-api-2.2.20.jar:2.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.io.IOException: Broken pipe
+	at java.base/sun.nio.ch.FileDispatcherImpl.write0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:47) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:113) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:79) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:50) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:466) ~[na:na]
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:138) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:101) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:152) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1251) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:801) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:571) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:509) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:538) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:112) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:190) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.Response.doWrite(Response.java:601) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:339) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	... 44 common frames omitted
+
+2019-11-18 14:05:51.246  WARN 12514 --- [http-nio-9091-exec-9] j.e.r.webcontainer.jsf.application       : JSF1064: Unable to find or serve resource, primeicons/primeicons.ttf, from library, primefaces.
+2019-11-18 14:05:51.249  WARN 12514 --- [http-nio-9091-exec-9] j.e.r.webcontainer.jsf.application       : 
+
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: Broken pipe
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:351) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:776) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.append(OutputBuffer.java:681) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:386) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:364) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:96) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.nio.channels.Channels$WritableByteChannelImpl.write(Channels.java:464) ~[na:na]
+	at com.sun.faces.application.resource.ResourceHandlerImpl.handleResourceRequest(ResourceHandlerImpl.java:358) ~[jsf-impl-2.2.20.jar:2.2.20]
+	at javax.faces.application.ResourceHandlerWrapper.handleResourceRequest(ResourceHandlerWrapper.java:153) ~[jsf-api-2.2.20.jar:2.2]
+	at org.primefaces.application.resource.PrimeResourceHandler.handleResourceRequest(PrimeResourceHandler.java:96) ~[primefaces-7.0.jar:7.0]
+	at javax.faces.application.ResourceHandlerWrapper.handleResourceRequest(ResourceHandlerWrapper.java:153) ~[jsf-api-2.2.20.jar:2.2]
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:655) ~[jsf-api-2.2.20.jar:2.2]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+Caused by: java.io.IOException: Broken pipe
+	at java.base/sun.nio.ch.FileDispatcherImpl.write0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:47) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:113) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:79) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:50) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:466) ~[na:na]
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:138) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:101) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:152) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1251) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:801) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:571) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:509) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:538) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:112) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:190) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.Response.doWrite(Response.java:601) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:339) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	... 44 common frames omitted
+
+2019-11-18 14:05:59.755  INFO 12514 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-18 14:05:59.756  INFO 12514 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-11-18 14:05:59.757  INFO 12514 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-11-18 14:05:59.816  WARN 12514 --- [SpringContextShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-199]
+2019-11-18 14:05:59.818  INFO 12514 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-11-18 14:05:59.828  INFO 12514 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
