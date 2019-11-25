@@ -72,26 +72,27 @@ public class DatabaseHandler {
                 "'null'," +
                 "'null'," +
                 "'100'," +
+                "'40'," +
+                "'0'," +
+                "'10'," +
+                "'10'," +
+                "'10'," +
+                "'10'," +
                 "'0'," +
                 "'0'," +
-                "'10'," +
-                "'10'," +
-                "'10'," +
-                "'10'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1'," +
-                "'-1', " +
+                "'0'," +
+                "'0'," +
+                "'0'," +
+                "'0'," +
+                "'0'," +
+                "'0'," +
+                "'0'," +
+                "'0'," +
+                "'0'," +
+                "'0'," +
+                "'0'," +
+                "'0'," +
+                "'0', " +
                 "'-1', " +
                 "'-1', " +
                 "'-1'," +
@@ -107,54 +108,7 @@ public class DatabaseHandler {
         }
     }
 
-    public static void createNewUser(Connection conn, String username) {
-        try {
-            statement = conn.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Something went wrong while creating statement to make a new USER table");
-        }
-        String sql = "CREATE TABLE IF NOT EXISTS " + username + "(" +
-                "name VARCHAR(15) PRIMARY KEY NOT NULL DEFAULT " + "'" + username + "'"+ ","+
-                "race VARCHAR(30) NOT NULL," +
-                "img VARCHAR(100) NOT NULL," +
-                "energy INT NOT NULL," +
-                "exp INT NOT NULL DEFAULT 0," +
-                "cash INT NOT NULL DEFAULT 0, " +
-                "str INT NOT NULL DEFAULT 10," +
-                "intel INT NOT NULL DEFAULT 10," +
-                "con INT NOT NULL DEFAULT 10," +
-                "dex INT NOT NULL DEFAULT 10," +
-                "helmet INT," +
-                "gloves INT," +
-                "outfit INT," +
-                "weapon INT," +
-                "jewellery2 INT," +
-                "jewellery1 INT," +
-                "inv1 INT," +
-                "inv2 INT," +
-                "inv3 INT," +
-                "inv4 INT," +
-                "inv5 INT," +
-                "inv6 INT," +
-                "inv7 INT," +
-                "inv8 INT," +
-                "is_working INT, " +
-                "work_end INT, " +
-                "quest_id INT, " +
-                "quest_reward INT)";
 
-        try {
-            statement.executeUpdate(sql);
-            System.out.println("Succesfully created new " + username + " table");
-            insertBasicDataIntoNewUser(conn, username);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't create new " + username + " table. Check if " + username + " table already exists or not!");
-        }
-
-
-    }
 
     public static void createUsersTable(Connection conn) {
 
@@ -199,7 +153,8 @@ public class DatabaseHandler {
                     "boots INT," +
                     "outfit INT," +
                     "weapon INT," +
-                    "jewellery INT," +
+                    "jewellery2 INT," +
+                    "jewellery1 INT," +
                     "inv1 INT," +
                     "inv2 INT," +
                     "inv3 INT," +
@@ -322,6 +277,9 @@ public class DatabaseHandler {
         CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv4(12);
         CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv5(15);
         CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv6(18);
+        System.out.println("inv7: " +         CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).getInv7());
+        System.out.println("inv8: " +         CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).getInv8());
+
 
 
 

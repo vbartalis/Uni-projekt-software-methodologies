@@ -69,6 +69,7 @@ public class QuestController {
     }
 
     public static int generateReward(Character character) {
+        System.out.println(character);
         return randomGenerator.nextInt((character.getLevel() * 10)  + (character.getLevel() * 20));
     }
 

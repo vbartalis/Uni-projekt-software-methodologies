@@ -7,6 +7,7 @@ import com.example.demo.model.ItemType;
 import org.primefaces.extensions.component.slideout.SlideOut;
 
 import javax.inject.Named;
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 
@@ -26,7 +27,9 @@ public class ItemController {
         ItemController.items = items;
     }
 
+
     public ItemType getItemType(Item item) {
+
         if (item.getType() == 0) return ItemType.TEMPLATE;
         else if (item.getType() == 1) return ItemType.ARMOR;
         else if (item.getType() == 2) return ItemType.GLOVES;
@@ -81,9 +84,141 @@ public class ItemController {
 
     }
 
+    public String findFirstFreeSpaceInInventory(Character character) {
+        if (character.getInv1() == 0) {
+            return "inv1";
+        }
+        else if (character.getInv2() == 0) {
+            return "inv2";
+        }
+        else if (character.getInv3() == 0) {
+            return "inv3";
+        }
+        else if (character.getInv4() == 0) {
+            return "inv4";
+        }
+        else if (character.getInv5() == 0) {
+            return "inv5";
+        }
+        else if (character.getInv6() == 0) {
+            return "inv6";
+        }
+        else if (character.getInv7() == 0) {
+            return "inv7";
+        }
+        else if (character.getInv8() == 0) {
+            return "inv8";
+        } else {
+            return "none";
+        }
+
+
+
+
+
+
+
+
+    }
+
+    public void setInventorySpaceToItem(Character character, Item item, String firstFreeSpace) {
+        switch (firstFreeSpace) {
+            case "inv1":
+                character.setInv1(item.getId());
+                DatabaseHandler.updateUser(character.getName(), "inv1", item.getId());
+                break;
+            case "inv2":
+                character.setInv2(item.getId());
+                DatabaseHandler.updateUser(character.getName(), "inv2", item.getId());
+                break;
+            case "inv3":
+                character.setInv3(item.getId());
+                DatabaseHandler.updateUser(character.getName(), "inv3", item.getId());
+                break;
+            case "inv4":
+                character.setInv4(item.getId());
+                DatabaseHandler.updateUser(character.getName(), "inv4", item.getId());
+                break;
+            case "inv5":
+                character.setInv5(item.getId());
+                DatabaseHandler.updateUser(character.getName(), "inv5", item.getId());
+                break;
+            case "inv6":
+                character.setInv6(item.getId());
+                DatabaseHandler.updateUser(character.getName(), "inv6", item.getId());
+                break;
+            case "inv7":
+                character.setInv7(item.getId());
+                DatabaseHandler.updateUser(character.getName(), "inv7", item.getId());
+                break;
+        }
+    }
+
+
+    public void unequipArmor(Character character, Item item, String firstFreeSpace) {
+        setInventorySpaceToItem(character, item, firstFreeSpace);
+        character.setOutfit(0);
+        DatabaseHandler.updateUser(character.getName(), "weapon", 0);
+
+    }
+
+    public void unequipWeapon(Character character, Item item, String firstFreeSpace) {
+        setInventorySpaceToItem(character, item, firstFreeSpace);
+        character.setWeapon(0);
+        DatabaseHandler.updateUser(character.getName(), "weapon", 0);
+    }
+
+    public void unequipHelmet(Character character, Item item, String firstFreeSpace) {
+        setInventorySpaceToItem(character, item, firstFreeSpace);
+        character.setHelmet(0);
+        DatabaseHandler.updateUser(character.getName(), "helmet", 0);
+    }
+
+    public void unequipGloves(Character character, Item item, String firstFreeSpace) {
+        setInventorySpaceToItem(character, item, firstFreeSpace);
+        character.setGloves(0);
+        DatabaseHandler.updateUser(character.getName(), "gloves", 0);
+    }
+
+    public void unequipJew1(Character character, Item item, String firstFreeSpace) {
+        setInventorySpaceToItem(character, item, firstFreeSpace);
+        character.setJew1(0);
+        DatabaseHandler.updateUser(character.getName(), "jewellery1", 0);
+    }
+
+    public void unequipJew2(Character character, Item item, String firstFreeSpace) {
+        setInventorySpaceToItem(character, item, firstFreeSpace);
+        character.setJew2(0);
+        DatabaseHandler.updateUser(character.getName(), "jewellery2", 0);
+    }
+
+    public void unequipItem(Character character, Item item) {
+        String firstFreeSpace = findFirstFreeSpaceInInventory(character);
+        ItemType itemType = getItemType(item);
+        System.out.println("First free space in inventory is " + firstFreeSpace);
+        if (itemType == ItemType.ARMOR) {
+            unequipArmor(character, item, firstFreeSpace);
+        }
+        else if (itemType == ItemType.WEAPON) {
+            unequipWeapon(character, item, firstFreeSpace);
+        }
+        else if (itemType == ItemType.HELMET) {
+            unequipHelmet(character, item, firstFreeSpace);
+        }
+        else if (itemType == ItemType.GLOVES) {
+            unequipGloves(character, item, firstFreeSpace);
+        }
+        else if (itemType == ItemType.JEWELLERY) {
+            unequipJew1(character, item, firstFreeSpace);
+            unequipJew2(character, item, firstFreeSpace);
+        }
+
+    }
+
     public void equipItem(Character character, Item item, String inventory) {
         ItemType itemType = getItemType(item);
         System.out.println(itemType);
+
 
         if (itemType == ItemType.ARMOR) {
             System.out.println("Type is armor");
@@ -92,16 +227,15 @@ public class ItemController {
                 System.out.println("Equipping armor..");
                 character.setOutfit(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "outfit", item.getId());
-                character.setOutfit(item.getId());
                 removeItemFromInventory(character, inventory);
-
             }
+
+
         } else if (itemType == ItemType.GLOVES) {
             if (character.getGloves() <= 0) {
                 System.out.println("Equipping gloves..");
                 character.setGloves(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "gloves", item.getId());
-                character.setGloves(item.getId());
                 removeItemFromInventory(character, inventory);
 
             }
@@ -110,7 +244,6 @@ public class ItemController {
                 System.out.println("Equipping helmet..");
                 character.setHelmet(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "helmet", item.getId());
-                character.setHelmet(item.getId());
                 removeItemFromInventory(character, inventory);
 
             }
@@ -119,7 +252,6 @@ public class ItemController {
                 character.setWeapon(item.getId());
                 System.out.println("Equipping weapon..");
                 DatabaseHandler.updateUser(character.getName(), "weapon", item.getId());
-                character.setWeapon(item.getId());
                 removeItemFromInventory(character, inventory);
 
             }
@@ -128,28 +260,22 @@ public class ItemController {
                 System.out.println("Equipping jew1..");
                 character.setJew1(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "jewellery1", item.getId());
-                character.setJew1(item.getId());
                 removeItemFromInventory(character, inventory);
 
             }  else if (character.getJew2() <= 0) {
                 System.out.println("Equipping jew2..");
                 character.setJew2(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "jewellery2", item.getId());
-                character.setJew2(item.getId());
                 removeItemFromInventory(character, inventory);
 
             }
         }
 
 
+
+
     }
 
 
-    public void unequipItem() {
-
-        //TODO: do it
-
-        System.out.println("Unequipping...");
-    }
 
 }

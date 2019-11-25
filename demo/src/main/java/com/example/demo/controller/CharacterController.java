@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.database.DatabaseHandler;
 import com.example.demo.model.Character;
+import com.example.demo.model.Item;
 
 import javax.inject.Named;
 import java.net.CookieHandler;
@@ -55,6 +56,29 @@ public class CharacterController {
         DatabaseHandler.updateUser(CookieController.getNameStoredInCookie(), "exp",
                 CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getExp()
         );
+    }
+
+    public void growStatsByItem(Item item) {
+        System.out.println("Growing stats by item...");
+        System.out.println("Item str: " + item.getStr());
+
+        int toUpdateStr = CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getStr() + item.getStr();
+        int toUpdateDex = CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getDex() + item.getDex();
+        int toUpdateInt = CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getIntel() + item.getIntel();
+        int toUpdateCons = CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getCon() + item.getCons();
+
+        CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).setStr(toUpdateStr);
+        CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).setStr(toUpdateDex);
+        CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).setStr(toUpdateInt);
+        CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).setStr(toUpdateCons);
+
+        DatabaseHandler.updateUser(CookieController.getNameStoredInCookie(), "str", toUpdateStr);
+        DatabaseHandler.updateUser(CookieController.getNameStoredInCookie(), "dex", toUpdateDex);
+        DatabaseHandler.updateUser(CookieController.getNameStoredInCookie(), "intel", toUpdateInt);
+        DatabaseHandler.updateUser(CookieController.getNameStoredInCookie(), "con", toUpdateCons);
+
+        //DatabaseHandler.updateUser(CookieController.getNameStoredInCookie(), "exp",
+        //        CharacterController.getLoggedInUsers().get(CookieController.getLoggedInIndex()).getExp()
 
     }
 

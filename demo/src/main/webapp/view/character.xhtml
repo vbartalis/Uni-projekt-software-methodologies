@@ -9,9 +9,10 @@
 >
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
-        <p:layoutUnit id="asd" position="center" >
-            <h:form>
-                <p:panelGrid style="margin-left: auto; margin-right: auto">
+        <p:layoutUnit position="center" >
+            <h:form id="equipped_form">
+                <p:outputPanel id="equipped_panel">
+                <p:panelGrid  style="margin-left: auto; margin-right: auto">
                     <p:row style="background: radial-gradient( red, yellow); ">
                         <p:column colspan="6">
                             <p:graphicImage library="characters" name="terran.png" style="display: block; margin-left: auto; margin-right: auto"/>
@@ -106,73 +107,91 @@
                         </p:column>
                     </p:row>
                 </p:panelGrid>
-                <p:contextMenu for="equipped">
-                    <p:menuitem actionListener="#{itemController.unequipItem()}" value="Unequip" />
-                </p:contextMenu>
+                    <p:contextMenu for="outfit">
+                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.outfit))}" value="Unequip" />
+                    </p:contextMenu>
+                    <p:contextMenu for="weapon">
+                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.weapon))}" value="Unequip" />
+                    </p:contextMenu>
+                    <p:contextMenu for="gloves">
+                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.gloves))}" value="Unequip" />
+                    </p:contextMenu>
+                    <p:contextMenu for="helmet">
+                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.helmet))}" value="Unequip" />
+                    </p:contextMenu>
+                    <p:contextMenu for="jew1">
+                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.jew1))}" value="Unequip" />
+                    </p:contextMenu>
+                    <p:contextMenu for="jew2">
+                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.jew2))}" value="Unequip" />
+                    </p:contextMenu>
+                </p:outputPanel>
             </h:form>
         </p:layoutUnit>
 
         <p:layoutUnit position="east" >
-            <h:form>
-                <p:panelGrid id="inventory">
-                    <p:row >
-                        <p:column id="inv1" colspan="1">
-                            <p:graphicImage library="items" name="#{characterView.inv1}.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                        <p:column id="inv2" colspan="1">
-                            <p:graphicImage library="items" name="#{characterView.inv2}.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                    </p:row>
-                    <p:row>
-                        <p:column id="inv3" colspan="1">
-                            <p:graphicImage library="items" name="#{characterView.inv3}.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                        <p:column id="inv4" colspan="1">
-                            <p:graphicImage library="items" name="#{characterView.inv4}.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                    </p:row>
-                    <p:row>
-                        <p:column id="inv5" colspan="1">
-                            <p:graphicImage library="items" name="#{characterView.inv5}.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                        <p:column id="inv6" colspan="1">
-                            <p:graphicImage library="items" name="#{characterView.inv6}.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                    </p:row>
-                    <p:row>
-                        <p:column id="inv7" colspan="1">
-                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                        <p:column id="inv8" colspan="1">
-                            <p:graphicImage library="items" name="template/ItemTemplate.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                    </p:row>
-                </p:panelGrid>
+            <h:form id="inventory_form">
+                <p:outputPanel  id="inventory">
+                    <p:panelGrid>
+                        <p:row >
+                            <p:column id="inv1" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv1}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            </p:column>
+                            <p:column id="inv2" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv2}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column id="inv3" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv3}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            </p:column>
+                            <p:column id="inv4" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv4}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column id="inv5" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv5}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            </p:column>
+                            <p:column id="inv6" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv6}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column id="inv7" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv7}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            </p:column>
+                            <p:column id="inv8" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv8}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                </p:outputPanel>
+
                 <p:contextMenu for="inv1">
-                    <p:menuitem update="inv1" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv1), 'inv1')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel" action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv1), 'inv1')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv2">
-                    <p:menuitem update="inv2" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv2), 'inv2')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv2), 'inv2')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv3">
-                    <p:menuitem update="inv3" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv3), 'inv3')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}"  actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv3), 'inv3')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv4">
-                    <p:menuitem update="inv4" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv4), 'inv4')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv4), 'inv4')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv5">
-                    <p:menuitem update="inv5" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv5), 'inv5')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv5), 'inv5')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv6">
-                    <p:menuitem update="inv6" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv6), 'inv6')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel" action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}"  actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv6), 'inv6')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv7">
-                    <p:menuitem update="inv7" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv7), 'inv7')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv7), 'inv7')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv8">
-                    <p:menuitem update="inv8" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv8), 'inv8')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv8), 'inv8')}" value="Equip"/>
                 </p:contextMenu>
-
             </h:form>
 
         </p:layoutUnit>
