@@ -12,7 +12,7 @@
         <p:layoutUnit position="center" >
             <h:form id="equipped_form">
                 <p:outputPanel id="equipped_panel">
-                <p:panelGrid  style="margin-left: auto; margin-right: auto">
+                <p:panelGrid style="margin-left: auto; margin-right: auto">
                     <p:row style="background: radial-gradient( red, yellow); ">
                         <p:column colspan="6">
                             <p:graphicImage library="players" name="terran.png" style="display: block; margin-left: auto; margin-right: auto"/>
@@ -23,19 +23,15 @@
                         <p:column colspan="3">#{cookieView.getNameStoredInCookie()}</p:column>
                     </p:row>
                     <p:row>
-                        <p:column colspan="3">Race:</p:column>
-                        <p:column colspan="3">#{characterView.getRace()}</p:column>
-                    </p:row>
-                    <p:row>
                         <p:column colspan="3">Level:</p:column>
                         <p:column colspan="3">
-                            <h:outputText id="level" value="#{characterView.getLevel()}"></h:outputText>
+                            <h:outputText id="level" value="#{characterView.getLevel()}"/>
                         </p:column>
                     </p:row>
                     <p:row>
                         <p:column colspan="3">XP:</p:column>
                         <p:column colspan="3">
-                            <h:outputText id="xp" value="#{characterView.getExp()}"></h:outputText>
+                            <h:outputText id="xp" value="#{characterView.getExp()}"/>
                         </p:column>
                     </p:row>
                     <p:row>
@@ -46,14 +42,28 @@
                         <p:column colspan="3">Energy:</p:column>
                         <p:column colspan="3">#{characterView.getEnergy()}</p:column>
                     </p:row>
+                    <p:row>
+                        <p:column colspan="2">Cost</p:column>
+                        <p:column colspan="1">Strength</p:column>
+                        <p:column colspan="1">Dexterity</p:column>
+                        <p:column colspan="1">Intelligence</p:column>
+                        <p:column colspan="1">Constitution</p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="2"/>
+                        <p:column id="strCost" colspan="1">#{characterView.getStrCost()}</p:column>
+                        <p:column id="dexCost" colspan="1">#{characterView.getDexCost()}</p:column>
+                        <p:column id="intelCost" colspan="1">#{characterView.getIntelCost()}</p:column>
+                        <p:column id="conCost" colspan="1">#{characterView.getConCost()}</p:column>
+                    </p:row>
 
                     <p:row>
                         <p:column colspan="1">Strength:</p:column>
                         <p:column colspan="1">
-                            <h:outputText id="str" value="#{characterView.getStr()}"></h:outputText>
+                            <h:outputText id="str" value="#{characterView.getStr()}"/>
                         </p:column>
                         <p:column colspan="1">
-                            <p:commandButton icon="pi pi-plus" action="#{characterController.growStrBy(1)}" update="str xp level" ></p:commandButton>
+                            <p:commandButton icon="pi pi-plus" action="#{characterController.growStrBy(1)}" update="str xp level @form"/>
                         </p:column>
 
                         <p:column colspan="1">Dexterity:</p:column>
@@ -61,9 +71,7 @@
                             <h:outputText id = "dex" value="#{characterView.getDex()}"/>
                         </p:column>
                         <p:column colspan="1">
-                            <p:commandButton icon="pi pi-plus" action="#{characterController.growDexBy(1)}" update="dex xp level">
-
-                            </p:commandButton>
+                            <p:commandButton icon="pi pi-plus" action="#{characterController.growDexBy(1)}" update="dex xp level @form"/>
                         </p:column>
                     </p:row>
 
@@ -73,61 +81,129 @@
                             <h:outputText id="int" value="#{characterView.getIntel()}"/>
                         </p:column>
                         <p:column colspan="1">
-                            <p:commandButton icon="pi pi-plus" action="#{characterController.growIntelBy(1)}" update="int xp level" ></p:commandButton>
+                            <p:commandButton icon="pi pi-plus" action="#{characterController.growIntelBy(1)}" update="int xp level @form"/>
                         </p:column>
 
 
                         <p:column colspan="1">Constitution:</p:column>
                         <p:column colspan="1">
-                            <h:outputText id="con" value="#{characterView.getCon()}"></h:outputText>
+                            <h:outputText id="con" value="#{characterView.getCon()}"/>
                         </p:column>
                         <p:column colspan="1">
-                            <p:commandButton icon="pi pi-plus" action="#{characterController.growConBy(1)}" update="con xp level" ></p:commandButton>
+                            <p:commandButton icon="pi pi-plus" action="#{characterController.growConBy(1)}" update="con xp level @form"/>
                         </p:column>
                     </p:row>
 
                     <p:row id="equipped">
                         <p:column colspan="1">
                             <p:graphicImage id="outfit" library="items" name="#{characterView.outfit}.png" cache="false" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="outfitTip" for="outfit">
+                                <h:outputText value="#{itemController.getItemById(characterView.outfit).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(characterView.outfit).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(characterView.outfit).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(characterView.outfit).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(characterView.outfit).cons}"/>
+                            </p:tooltip>
                         </p:column>
                         <p:column id="weapon" colspan="1">
                             <p:graphicImage library="items" name="#{characterView.weapon}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="weaponTip" for="weapon">
+                                <h:outputText value="#{itemController.getItemById(characterView.weapon).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(characterView.weapon).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(characterView.weapon).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(characterView.weapon).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(characterView.weapon).cons}"/>
+                            </p:tooltip>
                         </p:column>
                         <p:column id="gloves" colspan="1">
                             <p:graphicImage library="items" name="#{characterView.gloves}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="glovesTip" for="gloves">
+                                <h:outputText value="#{itemController.getItemById(characterView.gloves).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(characterView.gloves).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(characterView.gloves).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(characterView.gloves).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(characterView.gloves).cons}"/>
+                            </p:tooltip>
                         </p:column>
                         <p:column id="helmet" colspan="1">
                             <p:graphicImage library="items" name="#{characterView.helmet}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="helmetTip" for="helmet">
+                                <h:outputText value="#{itemController.getItemById(characterView.helmet).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(characterView.helmet).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(characterView.helmet).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(characterView.helmet).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(characterView.helmet).cons}"/>
+                            </p:tooltip>
                         </p:column>
                         <p:column id="jew1" colspan="1">
                             <p:graphicImage library="items" name="#{characterView.jew1}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="jew1Tip" for="jew1">
+                                <h:outputText value="#{itemController.getItemById(characterView.jew1).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(characterView.jew1).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(characterView.jew1).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(characterView.jew1).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(characterView.jew1).cons}"/>
+                            </p:tooltip>
                         </p:column>
                         <p:column id="jew2" colspan="1">
                             <p:graphicImage library="items" name="#{characterView.jew2}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="jew2Tip" for="jew2">
+                                <h:outputText value="#{itemController.getItemById(characterView.jew2).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(characterView.jew2).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(characterView.jew2).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(characterView.jew2).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(characterView.jew2).cons}"/>
+                            </p:tooltip>
                         </p:column>
                     </p:row>
                 </p:panelGrid>
                     <p:contextMenu for="outfit">
-                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.outfit))}" value="Unequip" />
+                        <p:menuitem update="@form :inventory_form:inventory"  actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.outfit))}" value="Unequip" />
                     </p:contextMenu>
                     <p:contextMenu for="weapon">
-                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.weapon))}" value="Unequip" />
+                        <p:menuitem update="@form :inventory_form:inventory"  actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.weapon))}" value="Unequip" />
                     </p:contextMenu>
                     <p:contextMenu for="gloves">
-                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.gloves))}" value="Unequip" />
+                        <p:menuitem update="@form :inventory_form:inventory"  actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.gloves))}" value="Unequip" />
                     </p:contextMenu>
                     <p:contextMenu for="helmet">
-                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.helmet))}" value="Unequip" />
+                        <p:menuitem update="@form :inventory_form:inventory"  actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.helmet))}" value="Unequip" />
                     </p:contextMenu>
                     <p:contextMenu for="jew1">
-                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.jew1))}" value="Unequip" />
+                        <p:menuitem update="@form :inventory_form:inventory"  actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.jew1))}" value="Unequip" />
                     </p:contextMenu>
                     <p:contextMenu for="jew2">
-                        <p:menuitem update="@form :inventory_form:inventory" actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.jew2))}" value="Unequip" />
+                        <p:menuitem update="@form :inventory_form:inventory"  actionListener="#{itemController.unequipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.jew2))}" value="Unequip" />
                     </p:contextMenu>
                 </p:outputPanel>
             </h:form>
         </p:layoutUnit>
+
+
 
         <p:layoutUnit position="east" >
             <h:form id="inventory_form">
@@ -136,61 +212,149 @@
                         <p:row >
                             <p:column id="inv1" colspan="1">
                                 <p:graphicImage library="items" name="#{characterView.inv1}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv1Tip" for="inv1">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv1).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv1).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv1).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv1).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv1).cons}"/>
+                                </p:tooltip>
                             </p:column>
                             <p:column id="inv2" colspan="1">
                                 <p:graphicImage library="items" name="#{characterView.inv2}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv2Tip" for="inv2">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv2).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv2).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv2).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv2).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv2).cons}"/>
+                                </p:tooltip>
                             </p:column>
                         </p:row>
                         <p:row>
                             <p:column id="inv3" colspan="1">
                                 <p:graphicImage library="items" name="#{characterView.inv3}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv3Tip" for="inv3">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv3).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv3).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv3).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv3).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv3).cons}"/>
+                                </p:tooltip>
                             </p:column>
                             <p:column id="inv4" colspan="1">
                                 <p:graphicImage library="items" name="#{characterView.inv4}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv4Tip" for="inv4">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv4).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv4).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv4).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv4).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv4).cons}"/>
+                                </p:tooltip>
                             </p:column>
                         </p:row>
                         <p:row>
                             <p:column id="inv5" colspan="1">
                                 <p:graphicImage library="items" name="#{characterView.inv5}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv5Tip" for="inv5">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv5).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv5).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv5).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv5).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv5).cons}"/>
+                                </p:tooltip>
                             </p:column>
                             <p:column id="inv6" colspan="1">
                                 <p:graphicImage library="items" name="#{characterView.inv6}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv6Tip" for="inv6">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv6).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv6).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv6).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv6).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv6).cons}"/>
+                                </p:tooltip>
                             </p:column>
                         </p:row>
                         <p:row>
                             <p:column id="inv7" colspan="1">
                                 <p:graphicImage library="items" name="#{characterView.inv7}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv7Tip" for="inv7">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv7).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv7).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv7).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv7).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv7).cons}"/>
+                                </p:tooltip>
                             </p:column>
                             <p:column id="inv8" colspan="1">
                                 <p:graphicImage library="items" name="#{characterView.inv8}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv8Tip" for="inv8">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv8).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv8).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv8).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv8).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv8).cons}"/>
+                                </p:tooltip>
                             </p:column>
                         </p:row>
                     </p:panelGrid>
                 </p:outputPanel>
 
                 <p:contextMenu for="inv1">
-                    <p:menuitem update="@form :equipped_form:equipped_panel" action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv1), 'inv1')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv1), 'inv1')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv2">
-                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv2), 'inv2')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv2), 'inv2')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv3">
-                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}"  actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv3), 'inv3')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv3), 'inv3')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv4">
-                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv4), 'inv4')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv4), 'inv4')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv5">
-                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv5), 'inv5')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv5), 'inv5')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv6">
-                    <p:menuitem update="@form :equipped_form:equipped_panel" action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}"  actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv6), 'inv6')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv6), 'inv6')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv7">
-                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv7), 'inv7')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv7), 'inv7')}" value="Equip"/>
                 </p:contextMenu>
                 <p:contextMenu for="inv8">
-                    <p:menuitem update="@form :equipped_form:equipped_panel"  action="#{characterController.growStatsByItem( itemController.getItemById(characterView.inv1))}" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv8), 'inv8')}" value="Equip"/>
+                    <p:menuitem update="@form :equipped_form:equipped_panel" actionListener="#{itemController.equipItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv8), 'inv8')}" value="Equip"/>
                 </p:contextMenu>
             </h:form>
 

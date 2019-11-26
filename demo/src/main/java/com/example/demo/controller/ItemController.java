@@ -35,7 +35,8 @@ public class ItemController {
         else if (item.getType() == 2) return ItemType.GLOVES;
         else if (item.getType() == 3) return ItemType.HELMET;
         else if (item.getType() == 4) return ItemType.WEAPON;
-        else if (item.getType() == 5) return ItemType.JEWELLERY;
+        else if (item.getType() == 5) return ItemType.JEWELLERY_LEFT;
+        else if (item.getType() == 6) return ItemType.JEWELLERY_RIGHT;
         else return ItemType.UNDEFINED;
     }
 
@@ -180,13 +181,13 @@ public class ItemController {
         DatabaseHandler.updateUser(character.getName(), "gloves", 0);
     }
 
-    public void unequipJew1(Character character, Item item, String firstFreeSpace) {
+    public void unequipJewLeft(Character character, Item item, String firstFreeSpace) {
         setInventorySpaceToItem(character, item, firstFreeSpace);
         character.setJew1(0);
         DatabaseHandler.updateUser(character.getName(), "jewellery1", 0);
     }
 
-    public void unequipJew2(Character character, Item item, String firstFreeSpace) {
+    public void unequipJewRight(Character character, Item item, String firstFreeSpace) {
         setInventorySpaceToItem(character, item, firstFreeSpace);
         character.setJew2(0);
         DatabaseHandler.updateUser(character.getName(), "jewellery2", 0);
@@ -198,19 +199,27 @@ public class ItemController {
         System.out.println("First free space in inventory is " + firstFreeSpace);
         if (itemType == ItemType.ARMOR) {
             unequipArmor(character, item, firstFreeSpace);
+            CharacterController.decreaseStatsByItem(item);
         }
         else if (itemType == ItemType.WEAPON) {
             unequipWeapon(character, item, firstFreeSpace);
+            CharacterController.decreaseStatsByItem(item);
         }
         else if (itemType == ItemType.HELMET) {
             unequipHelmet(character, item, firstFreeSpace);
+            CharacterController.decreaseStatsByItem(item);
         }
         else if (itemType == ItemType.GLOVES) {
             unequipGloves(character, item, firstFreeSpace);
+            CharacterController.decreaseStatsByItem(item);
         }
-        else if (itemType == ItemType.JEWELLERY) {
-            unequipJew1(character, item, firstFreeSpace);
-            unequipJew2(character, item, firstFreeSpace);
+        else if (itemType == ItemType.JEWELLERY_LEFT) {
+            unequipJewLeft(character, item, firstFreeSpace);
+            CharacterController.decreaseStatsByItem(item);
+        }
+        else if (itemType == ItemType.JEWELLERY_RIGHT) {
+            unequipJewRight(character, item, firstFreeSpace);
+            CharacterController.decreaseStatsByItem(item);
         }
 
     }
@@ -224,6 +233,7 @@ public class ItemController {
             System.out.println("Type is armor");
             System.out.println(character.getOutfit());
             if (character.getOutfit() <= 0) {
+                CharacterController.growStatsByItem(item);
                 System.out.println("Equipping armor..");
                 character.setOutfit(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "outfit", item.getId());
@@ -233,6 +243,7 @@ public class ItemController {
 
         } else if (itemType == ItemType.GLOVES) {
             if (character.getGloves() <= 0) {
+                CharacterController.growStatsByItem(item);
                 System.out.println("Equipping gloves..");
                 character.setGloves(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "gloves", item.getId());
@@ -241,6 +252,7 @@ public class ItemController {
             }
         } else if (itemType == ItemType.HELMET) {
             if (character.getHelmet() <= 0) {
+                CharacterController.growStatsByItem(item);
                 System.out.println("Equipping helmet..");
                 character.setHelmet(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "helmet", item.getId());
@@ -249,20 +261,25 @@ public class ItemController {
             }
         } else if (itemType == ItemType.WEAPON) {
             if (character.getWeapon() <= 0) {
+                CharacterController.growStatsByItem(item);
                 character.setWeapon(item.getId());
                 System.out.println("Equipping weapon..");
                 DatabaseHandler.updateUser(character.getName(), "weapon", item.getId());
                 removeItemFromInventory(character, inventory);
 
             }
-        } else if (itemType == ItemType.JEWELLERY) {
+        } else if (itemType == ItemType.JEWELLERY_LEFT) {
             if (character.getJew1() <= 0) {
+                CharacterController.growStatsByItem(item);
                 System.out.println("Equipping jew1..");
                 character.setJew1(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "jewellery1", item.getId());
                 removeItemFromInventory(character, inventory);
 
-            }  else if (character.getJew2() <= 0) {
+            }
+        } else if (itemType == ItemType.JEWELLERY_RIGHT) {
+            if (character.getJew2() <= 0) {
+                CharacterController.growStatsByItem(item);
                 System.out.println("Equipping jew2..");
                 character.setJew2(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "jewellery2", item.getId());

@@ -6,6 +6,7 @@ public enum ItemType {
     GLOVES,
     HELMET,
     WEAPON,
-    JEWELLERY,
+    JEWELLERY_LEFT,
+    JEWELLERY_RIGHT,
     UNDEFINED
 }

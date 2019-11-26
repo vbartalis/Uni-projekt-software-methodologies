@@ -85,7 +85,7 @@ public class DatabaseHandler {
                 "'0'," +
                 "'0'," +
                 "'0'," +
-                "'0'," +
+                "'4'," +
                 "'0'," +
                 "'0'," +
                 "'0'," +
@@ -270,20 +270,6 @@ public class DatabaseHandler {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv1(4);
-        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv2(6);
-        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv3(9);
-        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv4(12);
-        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv5(15);
-        CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setInv6(18);
-        System.out.println("inv7: " +         CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).getInv7());
-        System.out.println("inv8: " +         CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).getInv8());
-
-
-
-
-
 
         Character character = CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter());
         QuestController.randomizeQuests(character);

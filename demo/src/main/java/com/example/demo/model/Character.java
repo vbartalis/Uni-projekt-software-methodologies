@@ -15,12 +15,16 @@ public class Character {
     private int intel;
     private int con;
     private int dex;
+    private int strCost;
+    private int intelCost;
+    private int conCost;
+    private int dexCost;
     private int helmet;
     private int gloves;
+    private int jew1;
     private int jew2;
     private int outfit;
     private int weapon;
-    private int jew1;
     private int inv1;
     private int inv2;
     private int inv3;
@@ -124,6 +128,7 @@ public class Character {
     }
 
     public int getExp() {
+        System.out.println("GET EXP");
         return getDex() + getIntel() + getCon() + getStr();
     }
 
@@ -169,6 +174,38 @@ public class Character {
 
     public void setDex(int dex) {
         this.dex = dex;
+    }
+
+    public int getStrCost() {
+        return getLevel() * getStr();
+    }
+
+    public void setStrCost(int strCost) {
+        this.strCost = strCost;
+    }
+
+    public int getIntelCost() {
+        return getLevel() * getIntel();
+    }
+
+    public void setIntelCost(int intelCost) {
+        this.intelCost = intelCost;
+    }
+
+    public int getConCost() {
+        return getLevel() * getCon();
+    }
+
+    public void setConCost(int conCost) {
+        this.conCost = conCost;
+    }
+
+    public int getDexCost() {
+        return getLevel() * getDex();
+    }
+
+    public void setDexCost(int dexCost) {
+        this.dexCost = dexCost;
     }
 
     public int getHelmet() {
