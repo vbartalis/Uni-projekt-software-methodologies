@@ -35,7 +35,7 @@
                         </p:submenu>
                     </p:menu>
                     <h:form>
-                        <p:commandButton value="Log Out" actionListener="#{logOutController.logOut()}"  action="/login/?primefaces-redirect=true" />
+                        <p:commandButton value="Log Out" actionListener="#{logOutController.logOut()}"  action="#{redirectView.redirect()}" />
                     </h:form>
                 </p:layoutUnit>
 

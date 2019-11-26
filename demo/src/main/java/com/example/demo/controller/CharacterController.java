@@ -132,6 +132,7 @@ public class CharacterController {
 
     public static Character getCharacterByUserName(String username) {
         for (Character character: loggedInUsers) {
+            if (character!=null)
             if (character.getName().equals(username))
                 return character;
         }

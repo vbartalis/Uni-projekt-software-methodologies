@@ -18,7 +18,7 @@ public class CookieController {
                 if (cookie.getName().equals(name)) {
                     cookie.setValue(value);
                     cookie.setMaxAge(expiry);
-                    cookie.setPath("/");
+                    cookie.setPath("/view");
                     response.addCookie(cookie);
                     cookieFound = true;
                 }
@@ -28,7 +28,7 @@ public class CookieController {
                 Cookie cookie = new Cookie(name, value);
                 cookie.setMaxAge(expiry);
                 cookie.setMaxAge(expiry);
-                cookie.setPath("/");
+                cookie.setPath("/view");
                 response.addCookie(cookie);
             }
 

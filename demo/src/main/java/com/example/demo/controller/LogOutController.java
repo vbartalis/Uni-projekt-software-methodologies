@@ -16,6 +16,6 @@ public class LogOutController {
 
         System.out.println("Log out clicked");
 
-        RedirectHandler.setRedirectSite("login");
+        RedirectHandler.setRedirectSite("/login");
     }
 }

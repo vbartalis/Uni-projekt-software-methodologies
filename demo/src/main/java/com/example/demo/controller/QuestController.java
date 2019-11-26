@@ -69,7 +69,7 @@ public class QuestController {
     }
 
     public static int generateReward(Character character) {
-        System.out.println(character);
+        System.out.println(character.getLevel());
         return randomGenerator.nextInt((character.getLevel() * 10)  + (character.getLevel() * 20));
     }
 
@@ -94,7 +94,7 @@ public class QuestController {
         int workingMinute = generateWorkingMinute(character);
         quest.setWorkingMinutes(workingMinute);
         long workEnd = System.currentTimeMillis() + workingMinute * 60000;
-        quest.setFinishTime( new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date(workEnd)));
+        quest.setFinishTime( new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date(workEnd)));
 
         return quest;
     }

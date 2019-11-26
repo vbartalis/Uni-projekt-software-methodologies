@@ -159,7 +159,7 @@ public class ItemController {
     public void unequipArmor(Character character, Item item, String firstFreeSpace) {
         setInventorySpaceToItem(character, item, firstFreeSpace);
         character.setOutfit(0);
-        DatabaseHandler.updateUser(character.getName(), "weapon", 0);
+        DatabaseHandler.updateUser(character.getName(), "outfit", 0);
 
     }
 

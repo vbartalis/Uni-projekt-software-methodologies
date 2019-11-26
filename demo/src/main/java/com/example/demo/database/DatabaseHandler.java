@@ -282,7 +282,7 @@ public class DatabaseHandler {
         try {
             statement = connection.createStatement();
         } catch (SQLException e) {
-            System.out.println("Something wente wrong while creating a statement to get the users");
+            System.out.println("Something went wrong while creating a statement to get the users");
         }
 
         String sql = "SELECT * FROM USERS";
