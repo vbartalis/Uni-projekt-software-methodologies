@@ -10,30 +10,31 @@
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
         <p:layoutUnit position="center" style="background-image: url('../resources/background/treasure.jpg'); background-size: cover; width: 100%; height: auto; overflow: hidden;" class="transparentChild">
-            <p:panelGrid style="margin-left: auto; margin-right: auto">
-                <p:row style="background: radial-gradient( red, yellow); ">
-                    <p:column colspan="6">
-                        <p:graphicImage library="players" name="terran.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                    </p:column>
-                </p:row>
-                <p:row>
-                    <p:column colspan="3">Cash:</p:column>
-                    <p:column colspan="3">240$</p:column>
-                </p:row>
-                <p:row>
-                    <p:column colspan="3">
-                        <p:button value="Bet 1$"></p:button>
-                    </p:column>
-                    <p:column colspan="3">
-                        <p:button value="Bet 5$"></p:button>
-                    </p:column>
-                </p:row>
-                <p:row>
-                    <p:column colspan="3">prize</p:column>
-                    <p:column colspan="3"> 0$</p:column>
-                </p:row>
-            </p:panelGrid>
-
+            <h:form id="luck_form">
+                <p:panelGrid style="margin-left: auto; margin-right: auto">
+                    <p:row style="background: radial-gradient( red, yellow); ">
+                        <p:column colspan="6">
+                            <p:graphicImage library="players" name="terran.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="3">Cash:</p:column>
+                        <p:column id="cash" colspan="3">#{luckView.cash}$</p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="3">
+                            <p:commandButton actionListener="#{luckController.betOne(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Bet 1$" update="cash @form"></p:commandButton>
+                        </p:column>
+                        <p:column colspan="3">
+                            <p:commandButton actionListener="#{luckController.betFive(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Bet 5$" update="cash @form"></p:commandButton>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column colspan="3">prize</p:column>
+                        <p:column colspan="3"> 0$</p:column>
+                    </p:row>
+                </p:panelGrid>
+            </h:form>
         </p:layoutUnit>
     </ui:define>
 </ui:composition>
