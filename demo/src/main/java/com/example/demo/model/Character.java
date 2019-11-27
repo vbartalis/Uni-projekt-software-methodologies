@@ -40,6 +40,15 @@ public class Character {
     private int questId;
     private int questReward;
 
+    public Market getMarket() {
+        return market;
+    }
+
+    public void setMarket(Market market) {
+        this.market = market;
+    }
+
+    private Market market;
 
     public int isWorking() {
         return isWorking;

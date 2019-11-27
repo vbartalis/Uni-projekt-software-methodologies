@@ -49,7 +49,7 @@ public class ItemController {
         return null;
     }
 
-    public void removeItemFromInventory(Character character, String inventory) {
+    public static void removeItemFromInventory(Character character, String inventory) {
         if (inventory.equals("inv1")) {
             DatabaseHandler.updateUser(character.getName(), "inv1", 0);
             character.setInv1(0);
@@ -85,7 +85,7 @@ public class ItemController {
 
     }
 
-    public String findFirstFreeSpaceInInventory(Character character) {
+    public static String findFirstFreeSpaceInInventory(Character character) {
         if (character.getInv1() == 0) {
             return "inv1";
         }
@@ -122,7 +122,7 @@ public class ItemController {
 
     }
 
-    public void setInventorySpaceToItem(Character character, Item item, String firstFreeSpace) {
+    public static void setInventorySpaceToItem(Character character, Item item, String firstFreeSpace) {
         switch (firstFreeSpace) {
             case "inv1":
                 character.setInv1(item.getId());
@@ -151,6 +151,10 @@ public class ItemController {
             case "inv7":
                 character.setInv7(item.getId());
                 DatabaseHandler.updateUser(character.getName(), "inv7", item.getId());
+                break;
+            case "inv8":
+                character.setInv8(item.getId());
+                DatabaseHandler.updateUser(character.getName(), "inv8", item.getId());
                 break;
         }
     }

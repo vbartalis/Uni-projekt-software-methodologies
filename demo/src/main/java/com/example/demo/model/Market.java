@@ -6,6 +6,8 @@ public class Market {
     private int marketSlot3;
     private int marketSlot4;
     private int marketSlot5;
+    private int marketSlot6;
+
 
     public int getMarketSlot1() {
         return marketSlot1;
@@ -45,5 +47,14 @@ public class Market {
 
     public void setMarketSlot5(int marketSlot5) {
         this.marketSlot5 = marketSlot5;
+    }
+
+
+    public int getMarketSlot6() {
+        return marketSlot6;
+    }
+
+    public void setMarketSlot6(int marketSlot6) {
+        this.marketSlot6 = marketSlot6;
     }
 }

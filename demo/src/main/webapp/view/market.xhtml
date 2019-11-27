@@ -12,36 +12,134 @@
 
 <ui:composition template="layout.xhtml">
     <ui:define name="content">
-        <p:layoutUnit position="center" style="background-image: url('../resources/background/market.jpg'); background-size: cover; width: 100%; height: auto; overflow: hidden;" class="transparentChild">
-            <h:form>
-                <p:panelGrid style="margin-left: auto; margin-right: auto">
+        <p:layoutUnit id="market_layout" position="center" style="background-image: url('../resources/background/market.jpg'); background-size: cover; width: 100%; height: auto; overflow: hidden;" class="transparentChild">
+            <h:form id="market_form">
+                <p:contextMenu for="slot1">
+                    <p:menuitem update="@form inventory_form" actionListener="#{marketController.buyItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(marketView.marketSlot1), 'slot1')}" value="Buy"/>
+                </p:contextMenu>
+                <p:contextMenu for="slot2">
+                    <p:menuitem update="@form inventory_form" actionListener="#{marketController.buyItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(marketView.marketSlot2), 'slot2')}" value="Buy"/>
+                </p:contextMenu>
+                <p:contextMenu for="slot3">
+                    <p:menuitem update="@form inventory_form" actionListener="#{marketController.buyItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(marketView.marketSlot3), 'slot3')}" value="Buy"/>
+                </p:contextMenu>
+                <p:contextMenu for="slot4">
+                    <p:menuitem update="@form inventory_form" actionListener="#{marketController.buyItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(marketView.marketSlot4), 'slot4')}" value="Buy"/>
+                </p:contextMenu>
+                <p:contextMenu for="slot5">
+                    <p:menuitem update="@form inventory_form" actionListener="#{marketController.buyItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(marketView.marketSlot5), 'slot5')}" value="Buy"/>
+                </p:contextMenu>
+                <p:contextMenu for="slot6">
+                    <p:menuitem update="@form inventory_form" actionListener="#{marketController.buyItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(marketView.marketSlot6), 'slot6')}" value="Buy"/>
+                </p:contextMenu>
+                <p:panelGrid id="market_grid" style="margin-left: auto; margin-right: auto">
                     <p:row>
                         <p:column colspan="6" >
                             <p:graphicImage library="npc" name="merchant1.jpg" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: auto"/>
                         </p:column>
                     </p:row>
-                    <p:row>
+                    <p:row id="cash_row">
                         <p:column colspan="3" >Cash:</p:column>
-                        <p:column colspan="3" >240$</p:column>
+                        <p:column id="cash_col" colspan="3" >
+                            <p:outputLabel id="cash_label">#{characterView.cash}</p:outputLabel>
+                        </p:column>
                     </p:row>
                     <p:row id="shopInventory">
-                        <p:column colspan="1" >
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        <p:column id="slot1" colspan="1" >
+                            <p:graphicImage library="items" name="#{marketView.marketSlot1}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="slot1Tip" for="slot1">
+                                <h:outputText value="Name: #{itemController.getItemById(marketView.marketSlot1).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(marketView.marketSlot1).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(marketView.marketSlot1).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(marketView.marketSlot1).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(marketView.marketSlot1).cons}"/>
+                                <br/>
+                                <h:outputText value="Price: #{itemController.getItemById(marketView.marketSlot1).price}"/>
+                            </p:tooltip>
                         </p:column>
-                        <p:column colspan="1" >
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        <p:column id="slot2" colspan="1" >
+                            <p:graphicImage library="items" name="#{marketView.marketSlot2}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="slot2Tip" for="slot2">
+                                <h:outputText value="Name: #{itemController.getItemById(marketView.marketSlot2).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(marketView.marketSlot2).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(marketView.marketSlot2).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(marketView.marketSlot2).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(marketView.marketSlot2).cons}"/>
+                                <br/>
+                                <h:outputText value="Price: #{itemController.getItemById(marketView.marketSlot2).price}"/>
+                            </p:tooltip>
                         </p:column>
-                        <p:column colspan="1" >
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        <p:column id="slot3" colspan="1" >
+                            <p:graphicImage library="items" name="#{marketView.marketSlot3}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="slot3Tip" for="slot3">
+                                <h:outputText value="Name: #{itemController.getItemById(marketView.marketSlot3).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(marketView.marketSlot3).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(marketView.marketSlot3).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(marketView.marketSlot3).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(marketView.marketSlot3).cons}"/>
+                                <br/>
+                                <h:outputText value="Price: #{itemController.getItemById(marketView.marketSlot3).price}"/>
+                            </p:tooltip>
                         </p:column>
-                        <p:column colspan="1" >
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        <p:column id="slot4" colspan="1" >
+                            <p:graphicImage library="items" name="#{marketView.marketSlot4}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="slot4Tip" for="slot4">
+                                <h:outputText value="Name: #{itemController.getItemById(marketView.marketSlot4).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(marketView.marketSlot4).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(marketView.marketSlot4).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(marketView.marketSlot4).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(marketView.marketSlot4).cons}"/>
+                                <br/>
+                                <h:outputText value="Price: #{itemController.getItemById(marketView.marketSlot4).price}"/>
+                            </p:tooltip>
                         </p:column>
-                        <p:column colspan="1" >
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        <p:column id="slot5" colspan="1" >
+                            <p:graphicImage library="items" name="#{marketView.marketSlot5}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="slot5Tip" for="slot5">
+                                <h:outputText value="Name: #{itemController.getItemById(marketView.marketSlot5).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(marketView.marketSlot5).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(marketView.marketSlot5).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(marketView.marketSlot5).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(marketView.marketSlot5).cons}"/>
+                                <br/>
+                                <h:outputText value="Price: #{itemController.getItemById(marketView.marketSlot5).price}"/>
+                            </p:tooltip>
                         </p:column>
-                        <p:column colspan="1" >
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        <p:column id="slot6" colspan="1" >
+                            <p:graphicImage library="items" name="#{marketView.marketSlot6}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                            <p:tooltip id="slot6Tip" for="slot6">
+                                <h:outputText value="Name: #{itemController.getItemById(marketView.marketSlot6).name}"/>
+                                <br/>
+                                <h:outputText value="strength: #{itemController.getItemById(marketView.marketSlot6).str}"/>
+                                <br/>
+                                <h:outputText value="Intelligence: #{itemController.getItemById(marketView.marketSlot6).intel}"/>
+                                <br/>
+                                <h:outputText value="Dexterity: #{itemController.getItemById(marketView.marketSlot6).dex}"/>
+                                <br/>
+                                <h:outputText value="Constitution: #{itemController.getItemById(marketView.marketSlot6).cons}"/>
+                                <br/>
+                                <h:outputText value="Price: #{itemController.getItemById(marketView.marketSlot6).price}"/>
+                            </p:tooltip>
                         </p:column>
                     </p:row>
                 </p:panelGrid>
@@ -49,50 +147,180 @@
                     <p:menuitem value="Buy" />
                 </p:contextMenu>
             </h:form>
-
         </p:layoutUnit>
 
-        <p:layoutUnit position="east" >
-            <h:form>
-                <p:panelGrid id="playerInventory">
-                    <p:row >
-                        <p:column colspan="1">
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                        <p:column colspan="1">
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                    </p:row>
-                    <p:row>
-                        <p:column colspan="1">
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                        <p:column colspan="1">
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                    </p:row>
-                    <p:row>
-                        <p:column colspan="1">
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                        <p:column colspan="1">
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                    </p:row>
-                    <p:row>
-                        <p:column colspan="1">
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                        <p:column colspan="1">
-                            <p:graphicImage library="items" name="0.png" style="display: block; margin-left: auto; margin-right: auto"/>
-                        </p:column>
-                    </p:row>
-                </p:panelGrid>
-                <p:contextMenu for="playerInventory">
-                    <p:menuitem value="Sell" />
-                </p:contextMenu>
-            </h:form>
 
+
+        <p:layoutUnit position="east" >
+            <h:form id="inventory_form">
+                <p:contextMenu for="inv1">
+                    <p:menuitem update="@form  :market_form:market_grid" actionListener="#{marketController.sellItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv1), 'inv1')}" value="Sell"/>
+                </p:contextMenu>
+                <p:contextMenu for="inv2">
+                    <p:menuitem update="@form  :market_form:market_grid" actionListener="#{marketController.sellItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv2), 'inv2')}" value="Sell"/>
+                </p:contextMenu>
+                <p:contextMenu for="inv3">
+                    <p:menuitem update="@form  :market_form:market_grid" actionListener="#{marketController.sellItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv3), 'inv3')}" value="Sell"/>
+                </p:contextMenu>
+                <p:contextMenu for="inv4">
+                    <p:menuitem update="@form :market_form:market_grid" actionListener="#{marketController.sellItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv4), 'inv4')}" value="Sell"/>
+                </p:contextMenu>
+                <p:contextMenu for="inv5">
+                    <p:menuitem update="@form :market_form:market_grid" actionListener="#{marketController.sellItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv5), 'inv5')}" value="Sell"/>
+                </p:contextMenu>
+                <p:contextMenu for="inv6">
+                    <p:menuitem update="@form :market_form:market_grid" actionListener="#{marketController.sellItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv6), 'inv6')}" value="Sell"/>
+                </p:contextMenu>
+                <p:contextMenu for="inv7">
+                    <p:menuitem update="@form :market_form:market_grid" actionListener="#{marketController.sellItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv7), 'inv7')}" value="Sell"/>
+                </p:contextMenu>
+                <p:contextMenu for="inv8">
+                    <p:menuitem update="@form :market_form:market_grid" actionListener="#{marketController.sellItem(characterController.getCharacterByUserName(cookieView.nameStoredInCookie), itemController.getItemById(characterView.inv8), 'inv8')}" value="Sell"/>
+                </p:contextMenu>
+
+                <p:outputPanel  id="inventory">
+                    <p:panelGrid>
+                        <p:row >
+                            <p:column id="inv1" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv1}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv1Tip" for="inv1">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv1).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv1).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv1).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv1).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv1).cons}"/>
+                                    <br/>
+                                    <h:outputText value="Price: #{itemController.getItemById(characterView.inv1).price}"/>
+                                </p:tooltip>
+                            </p:column>
+                            <p:column id="inv2" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv2}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv2Tip" for="inv2">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv2).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv2).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv2).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv2).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv2).cons}"/>
+                                    <br/>
+                                    <h:outputText value="Price: #{itemController.getItemById(characterView.inv2).price}"/>
+                                </p:tooltip>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column id="inv3" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv3}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv3Tip" for="inv3">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv3).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv3).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv3).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv3).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv3).cons}"/>
+                                    <br/>
+                                    <h:outputText value="Price: #{itemController.getItemById(characterView.inv3).price}"/>
+                                </p:tooltip>
+                            </p:column>
+                            <p:column id="inv4" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv4}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv4Tip" for="inv4">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv4).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv4).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv4).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv4).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv4).cons}"/>
+                                    <br/>
+                                    <h:outputText value="Price: #{itemController.getItemById(characterView.inv4).price}"/>
+                                </p:tooltip>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column id="inv5" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv5}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv5Tip" for="inv5">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv5).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv5).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv5).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv5).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv5).cons}"/>
+                                    <br/>
+                                    <h:outputText value="Price: #{itemController.getItemById(characterView.inv5).price}"/>
+                                </p:tooltip>
+                            </p:column>
+                            <p:column id="inv6" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv6}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv6Tip" for="inv6">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv6).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv6).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv6).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv6).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv6).cons}"/>
+                                    <br/>
+                                    <h:outputText value="Price: #{itemController.getItemById(characterView.inv6).price}"/>
+                                </p:tooltip>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column id="inv7" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv7}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv7Tip" for="inv7">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv7).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv7).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv7).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv7).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv7).cons}"/>
+                                    <br/>
+                                    <h:outputText value="Price: #{itemController.getItemById(characterView.inv7).price}"/>
+                                </p:tooltip>
+                            </p:column>
+                            <p:column id="inv8" colspan="1">
+                                <p:graphicImage library="items" name="#{characterView.inv8}.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                                <p:tooltip id="inv8Tip" for="inv8">
+                                    <h:outputText value="#{itemController.getItemById(characterView.inv8).name}"/>
+                                    <br/>
+                                    <h:outputText value="strength: #{itemController.getItemById(characterView.inv8).str}"/>
+                                    <br/>
+                                    <h:outputText value="Intelligence: #{itemController.getItemById(characterView.inv8).intel}"/>
+                                    <br/>
+                                    <h:outputText value="Dexterity: #{itemController.getItemById(characterView.inv8).dex}"/>
+                                    <br/>
+                                    <h:outputText value="Constitution: #{itemController.getItemById(characterView.inv8).cons}"/>
+                                    <br/>
+                                    <h:outputText value="Price: #{itemController.getItemById(characterView.inv8).price}"/>
+                                </p:tooltip>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                </p:outputPanel>
+
+
+            </h:form>
 
         </p:layoutUnit>
     </ui:define>

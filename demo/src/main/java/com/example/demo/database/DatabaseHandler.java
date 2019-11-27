@@ -3,6 +3,7 @@ package com.example.demo.database;
 
 import com.example.demo.controller.CharacterController;
 import com.example.demo.controller.CookieController;
+import com.example.demo.controller.MarketController;
 import com.example.demo.controller.QuestController;
 import com.example.demo.model.Character;
 import com.example.demo.model.Item;
@@ -273,6 +274,7 @@ public class DatabaseHandler {
 
         Character character = CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter());
         QuestController.randomizeQuests(character);
+        MarketController.randomizeMarketItems(character);
 
 
     }
