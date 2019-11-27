@@ -15,15 +15,15 @@
                     <p:column colspan="2">Cargo unloader</p:column>
                 </p:row>
                 <p:row>
-                    <p:column colspan="1">time</p:column>
-                    <p:column colspan="1">5:55 hour</p:column>
+                    <p:column colspan="1">Time</p:column>
+                    <p:column colspan="1">8 hour</p:column>
                 </p:row>
                 <p:row>
                     <p:column colspan="1">
-                        <p:button value="Start working" ></p:button>
+                        <p:commandButton actionListener="#{jobController.startJob(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Start working" ></p:commandButton>
                     </p:column>
                     <p:column colspan="1">
-                        <p:button value="Stop working" ></p:button>
+                        <p:commandButton action = "#{redirectView.redirect()}" actionListener="#{jobController.finishJob(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Stop working" ></p:commandButton>
                     </p:column>
                 </p:row>
             </p:panelGrid>
