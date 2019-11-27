@@ -19,7 +19,7 @@ public class JobController {
 
             character.setWorking(1);
             DatabaseHandler.updateUser(character.getName(), "is_working", 1);
-            DatabaseHandler.updateUser(character.getName(), "work_end", System.currentTimeMillis()/1000);
+            DatabaseHandler.updateUser(character.getName(), "work_end", System.currentTimeMillis()/1000 + 28800);
             character.setWork_end((System.currentTimeMillis()/1000 + 28800));
         }
         else

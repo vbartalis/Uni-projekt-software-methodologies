@@ -35,7 +35,9 @@ public class TavernController {
             DatabaseHandler.updateUser(character.getName(), "quest_id", quest.getId());
             DatabaseHandler.updateUser(character.getName(), "quest_reward", quest.getReward());
 
-            character.setWork_end((System.currentTimeMillis() + quest.getWorkingMinutes() * 60000));
+            character.setWork_end(((System.currentTimeMillis() + quest.getWorkingMinutes() * 60000)/1000));
+
+            DatabaseHandler.updateUser(character.getName(), "work_end", character.getWork_end());
             character.setQuest(quest);
             character.setQuestReward(quest.getReward());
         }
@@ -48,7 +50,7 @@ public class TavernController {
         System.out.println("Work end: " + character.getWork_end());
         System.out.println("Is working: " + character.isWorking());
 
-        if (character.getWork_end() < System.currentTimeMillis() && character.isWorking() > 0) {
+        if (character.getWork_end()*1000 < System.currentTimeMillis() && character.isWorking() > 0) {
 
             System.out.println(character.getName() + " successfully finished his quest");
             character.setWorking(-1);
