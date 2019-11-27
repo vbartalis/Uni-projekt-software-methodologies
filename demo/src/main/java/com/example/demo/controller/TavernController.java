@@ -54,6 +54,7 @@ public class TavernController {
 
             System.out.println(character.getName() + " successfully finished his quest");
             character.setWorking(-1);
+            character.setQuestId(-1);
 
             int newCash = character.getCash() + character.getQuestReward();
             character.setCash(newCash);
