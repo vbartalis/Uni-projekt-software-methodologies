@@ -1,10 +1,7 @@
 package com.example.demo.database;
 
 
-import com.example.demo.controller.CharacterController;
-import com.example.demo.controller.CookieController;
-import com.example.demo.controller.MarketController;
-import com.example.demo.controller.QuestController;
+import com.example.demo.controller.*;
 import com.example.demo.model.Character;
 import com.example.demo.model.Item;
 import com.example.demo.model.Quest;
@@ -15,6 +12,9 @@ import javax.annotation.ManagedBean;
 import javax.inject.Named;
 import java.sql.*;
 import java.util.ArrayList;
+
+import static com.example.demo.controller.ArenaController.makeEnemy;
+
 
 @Named
 public class DatabaseHandler {
@@ -275,8 +275,7 @@ public class DatabaseHandler {
         Character character = CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter());
         QuestController.randomizeQuests(character);
         MarketController.randomizeMarketItems(character);
-
-
+        ArenaController.makeEnemy(character);
     }
 
     public static void deleteAllUserTable(Connection connection) {

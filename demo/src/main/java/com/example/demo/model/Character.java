@@ -40,6 +40,16 @@ public class Character {
     private int questId;
     private int questReward;
 
+    public Enemy getEnemy() {
+        return enemy;
+    }
+
+    public void setEnemy(Enemy enemy) {
+        this.enemy = enemy;
+    }
+
+    private Enemy enemy;
+
     public Market getMarket() {
         return market;
     }
