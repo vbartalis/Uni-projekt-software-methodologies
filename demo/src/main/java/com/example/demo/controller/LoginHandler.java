@@ -70,6 +70,40 @@ public class LoginHandler {
                         System.out.println("Successfully logged in! Welcome " + username + "!");
                         login = true;
                         loginCounter++;
+
+                        if((character.isWorking() == 4) || (character.isWorking() == 8))
+                        {
+                            if (character.getWork_end()*1000 < System.currentTimeMillis())
+                            {
+                                System.out.println(character.getName() + " was sleeping and its time to wake up !");
+                                if (character.isWorking() ==4)
+                                {
+                                    if ((character.getEnergy() + 50)>=100)
+                                    {
+                                        character.setEnergy(100);
+                                    }
+                                    else
+                                    {
+                                        character.setEnergy(character.getEnergy() + 50);
+                                    }
+                                    character.setWorking(-1);
+                                    DatabaseHandler.updateUser(character.getName(), "is_working", character.isWorking());
+                                    DatabaseHandler.updateUser(character.getName(), "energy", character.getEnergy());
+
+                                    System.out.println(character.getName() + "`s energy was updated !");
+                                }
+                                else
+                                {
+                                    character.setEnergy(100);
+                                    character.setWorking(-1);
+                                    DatabaseHandler.updateUser(character.getName(), "is_working", character.isWorking());
+                                    DatabaseHandler.updateUser(character.getName(), "energy", character.getEnergy());
+
+                                    System.out.println(character.getName() + "`s energy was updated !");
+                                }
+                            }
+                        }
+
                         RedirectHandler.setRedirectSite("view/character");
 
 
