@@ -276,6 +276,7 @@ public class DatabaseHandler {
         QuestController.randomizeQuests(character);
         MarketController.randomizeMarketItems(character);
         ArenaController.makeEnemy(character);
+        HarborController.makeHarborEnemy(character);
     }
 
     public static void deleteAllUserTable(Connection connection) {

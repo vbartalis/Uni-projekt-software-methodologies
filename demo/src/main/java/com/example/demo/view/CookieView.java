@@ -1,5 +1,4 @@
 package com.example.demo.view;
-
 import com.example.demo.controller.CookieController;
 
 import javax.inject.Named;

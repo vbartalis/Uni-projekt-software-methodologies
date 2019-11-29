@@ -4,7 +4,6 @@ import com.example.demo.controller.CharacterController;
 import com.example.demo.controller.CookieController;
 
 import javax.inject.Named;
-
 @Named
 public class ArenaView {
     public String getEnemyName() {

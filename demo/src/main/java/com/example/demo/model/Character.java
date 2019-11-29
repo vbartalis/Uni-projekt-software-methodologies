@@ -39,6 +39,17 @@ public class Character {
     private int isWorking;
     private int questId;
     private int questReward;
+    private Harbor harbor;
+    private Enemy enemy;
+    private Market market;
+
+    public Harbor getHarbor() {
+        return harbor;
+    }
+
+    public void setHarbor(Harbor harbor) {
+        this.harbor = harbor;
+    }
 
     public Enemy getEnemy() {
         return enemy;
@@ -48,8 +59,6 @@ public class Character {
         this.enemy = enemy;
     }
 
-    private Enemy enemy;
-
     public Market getMarket() {
         return market;
     }
@@ -58,7 +67,6 @@ public class Character {
         this.market = market;
     }
 
-    private Market market;
 
     public int isWorking() {
         return isWorking;

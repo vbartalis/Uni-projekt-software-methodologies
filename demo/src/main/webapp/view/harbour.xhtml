@@ -13,34 +13,47 @@
             <p:panelGrid style="margin-left: auto; margin-right: auto">
                 <p:row style="background: radial-gradient( red, yellow); ">
                     <p:column colspan="6">
-                        <p:graphicImage library="enemy" name="cyborg.png" style="display: block; margin-left: auto; margin-right: auto"/>
+                        <p:graphicImage id="harborEnemyImage" library="enemy" name="#{harborView.getHarborEnemyImage()}.png"/>
                     </p:column>
                 </p:row>
                 <p:row>
                     <p:column colspan="3">Name:</p:column>
-                    <p:column colspan="3">Pirate</p:column>
+                    <p:column colspan="3">
+                        <h:outputText id="harborEnemyName" value="#{harborView.getHarborEnemyName()}"/>
+                    </p:column>
                 </p:row>
                 <p:row>
                     <p:column colspan="3">Race:</p:column>
-                    <p:column colspan="3">Terran</p:column>
+                    <p:column colspan="3">
+                        <h:outputText id="harborEnemyRace" value="#{harborView.getHarborEnemyRace()}"/>
+                    </p:column>
                 </p:row>
                 <p:row>
                     <p:column colspan="3">Level:</p:column>
-                    <p:column colspan="3">32</p:column>
+                    <p:column colspan="3">
+                        <h:outputText id="harborEnemyLevel" value="#{harborView.getHarborEnemyLevel()}"/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="3">Reward:</p:column>
+                    <p:column colspan="3">
+                        <h:outputText id="harborEnemyCash" value="#{harborView.getHarborEnemyCash()}"/>
+                    </p:column>
                 </p:row>
                 <p:row>
                     <p:column colspan="3">Cash:</p:column>
-                    <p:column colspan="3">240$</p:column>
+                    <p:column colspan="3">
+                        <h:outputText id="harborPlayerCash" value="#{harborView.getHarborPlayerCash()}"/>
+                    </p:column>
                 </p:row>
                 <p:row>
                     <p:column colspan="3">
-                        <p:button value="Next"></p:button>
+                        <p:commandButton actionListener="#{harborController.nextHarborEnemy(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Next" update="harborEnemyName harborEnemyLevel harborEnemyCash harborPlayerCash harborEnemyRace harborEnemyImage"></p:commandButton>
                     </p:column>
                     <p:column colspan="3">
-                        <p:button value="Atack"></p:button>
+                        <p:commandButton actionListener="#{harborController.attackHarborEnemy(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Attack" update="harborEnemyName harborEnemyLevel harborEnemyCash harborPlayerCash harborEnemyRace harborEnemyImage"></p:commandButton>
                     </p:column>
                 </p:row>
-
             </p:panelGrid>
 
         </p:layoutUnit>
