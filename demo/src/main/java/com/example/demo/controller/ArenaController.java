@@ -28,15 +28,21 @@ public class ArenaController {
 
 
     public static void makeEnemy(Character character) {
-        System.out.println("enemyt csinalunk");
+        System.out.println("New Enemy Generated");
         Collections.shuffle(enemies);
         Enemy enemy = new Enemy();
         Faker faker = new Faker();
         Random random = new Random();
         int enemycash = random.nextInt(130) + 10;
-        int enemylevel= random.nextInt(99) + 1;
-        enemies.get(1).setCash(enemycash);
-        character.setEnemy(enemies.get(1));
+        if(character.getName().equals(enemies.get(1).getName())){
+            enemies.get(4).setCash(enemycash);
+            character.setEnemy(enemies.get(4));
+        }
+        else {
+            enemies.get(1).setCash(enemycash);
+            character.setEnemy(enemies.get(1));
+        }
+
     }
 
 
