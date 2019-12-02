@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
-
+import com.example.demo.controller.ArenaController;
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.Servlet;
 import javax.xml.crypto.Data;
@@ -21,6 +21,7 @@ public class DemoApplication {
 
 		ItemController.setItems(DatabaseHandler.getAllItemsFromDatabase());
 		QuestController.setQuests(DatabaseHandler.getAllQuestsFromDatabase());
+		ArenaController.setEnemies(DatabaseHandler.getAllPlayersFromDatabase());
 
 		SpringApplication.run(DemoApplication.class, args);
 	}

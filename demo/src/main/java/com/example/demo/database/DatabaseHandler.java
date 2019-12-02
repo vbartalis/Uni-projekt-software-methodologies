@@ -3,6 +3,7 @@ package com.example.demo.database;
 
 import com.example.demo.controller.*;
 import com.example.demo.model.Character;
+import com.example.demo.model.Enemy;
 import com.example.demo.model.Item;
 import com.example.demo.model.Quest;
 import com.example.demo.view.LoginView;
@@ -324,6 +325,27 @@ public class DatabaseHandler {
         }
 
         return quests;
+    }
+
+    public static ArrayList<Enemy> getAllPlayersFromDatabase() {
+        ArrayList<Enemy> players = new ArrayList<Enemy>();
+        Connection connection = connect();
+        try {
+            statement = connection.createStatement();
+            String sql = "SELECT * FROM CHARACTERS";
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                players.add(new Enemy(resultSet.getString("name"), resultSet.getInt("exp")/10) );
+            }
+
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return players;
     }
 
     public static ArrayList<Item> getAllItemsFromDatabase() {

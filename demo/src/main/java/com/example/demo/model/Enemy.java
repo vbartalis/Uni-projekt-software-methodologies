@@ -6,6 +6,15 @@ public class Enemy {
     int level;
     int cash;
 
+
+    public Enemy(String name, int level) {
+        this.name = name;
+        this.level = level;
+    }
+    public Enemy() {
+
+    }
+
     public String getName() {
         return name;
     }
