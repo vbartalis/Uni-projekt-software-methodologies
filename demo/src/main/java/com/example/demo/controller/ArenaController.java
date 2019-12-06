@@ -4,6 +4,7 @@ import com.example.demo.database.DatabaseHandler;
 import com.github.javafaker.Faker;
 import com.example.demo.model.Enemy;
 import com.example.demo.model.Character;
+import com.example.demo.controller.RedirectHandler;
 import com.example.demo.model.Enemy;
 import org.springframework.context.support.AbstractResourceBasedMessageSource;
 
@@ -12,6 +13,7 @@ import java.util.Collections;
 import java.util.Random;
 
 import javax.inject.Named;
+import javax.xml.crypto.Data;
 
 import static java.util.Collections.shuffle;
 
@@ -51,13 +53,17 @@ public class ArenaController {
     }
 
     public void attackEnemy(Character character) {
-        if(character.getEnemy().getLevel() < character.getLevel()) {
-            character.setCash(character.getCash() + character.getEnemy().getCash());
-            DatabaseHandler.updateUser(character.getName(),"cash", character.getCash());
-            nextEnemy(character);
-        }
-        else {
-            nextEnemy(character);
+
+        if(character.getEnergy() >= 5) {
+            character.setEnergy(character.getEnergy() - 5);
+            DatabaseHandler.updateUser(character.getName(),"energy", character.getEnergy());
+            if (character.getEnemy().getLevel() < character.getLevel()) {
+                character.setCash(character.getCash() + character.getEnemy().getCash());
+                DatabaseHandler.updateUser(character.getName(), "cash", character.getCash());
+                nextEnemy(character);
+            } else {
+                nextEnemy(character);
+            }
         }
 
     }

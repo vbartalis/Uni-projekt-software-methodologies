@@ -261,6 +261,7 @@ public class DatabaseHandler {
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setWorking(resultSet.getInt("is_working"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setQuestId(resultSet.getInt("quest_id"));
                 CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setQuestReward(resultSet.getInt("quest_reward"));
+                CharacterController.getLoggedInUsers().get(CharacterController.getLoggedInUsersCounter()).setEnergy(resultSet.getInt("energy"));
             }
         }
         catch(SQLException e) {

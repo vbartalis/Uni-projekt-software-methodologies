@@ -21,25 +21,31 @@ public class TavernController {
 
     public void startQuest(Quest quest, Character character) {
 
-        System.out.println("Starting quest if it doesn't exist....");
-        System.out.println("is wokring: " + character.isWorking());
+        if (character.getEnergy() >= 15) {
 
-        if (character.isWorking() <= 0) {
+            System.out.println("Starting quest if it doesn't exist....");
+            System.out.println("is wokring: " + character.isWorking());
 
-            System.out.println(character.getName() +  " is starting quest " + quest.getDescription());
-            System.out.println("Working minutes: " + quest.getWorkingMinutes());
-            System.out.println("Reward: " + quest.getReward());
+            if (character.isWorking() <= 0) {
 
-            character.setWorking(1);
-            DatabaseHandler.updateUser(character.getName(), "is_working", 1);
-            DatabaseHandler.updateUser(character.getName(), "quest_id", quest.getId());
-            DatabaseHandler.updateUser(character.getName(), "quest_reward", quest.getReward());
+                System.out.println(character.getName() + " is starting quest " + quest.getDescription());
+                System.out.println("Working minutes: " + quest.getWorkingMinutes());
+                System.out.println("Reward: " + quest.getReward());
 
-            character.setWork_end(((System.currentTimeMillis() + quest.getWorkingMinutes() * 60000)/1000));
+                character.setWorking(1);
+                DatabaseHandler.updateUser(character.getName(), "is_working", 1);
+                DatabaseHandler.updateUser(character.getName(), "quest_id", quest.getId());
+                DatabaseHandler.updateUser(character.getName(), "quest_reward", quest.getReward());
 
-            DatabaseHandler.updateUser(character.getName(), "work_end", character.getWork_end());
-            character.setQuest(quest);
-            character.setQuestReward(quest.getReward());
+                character.setWork_end(((System.currentTimeMillis() + quest.getWorkingMinutes() * 60000) / 1000));
+
+                DatabaseHandler.updateUser(character.getName(), "work_end", character.getWork_end());
+                character.setEnergy(character.getEnergy() - 15);
+                DatabaseHandler.updateUser(character.getName(), "energy", character.getEnergy());
+                character.setQuest(quest);
+                character.setQuestReward(quest.getReward());
+
+            }
         }
     }
 

@@ -19,8 +19,18 @@
                     <p:column colspan="1">8 hour</p:column>
                 </p:row>
                 <p:row>
+                    <p:column colspan="1">Energy Cost:</p:column>
+                    <p:column colspan="1">5</p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="1">Energy::</p:column>
                     <p:column colspan="1">
-                        <p:commandButton actionListener="#{jobController.startJob(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Start working" ></p:commandButton>
+                        <h:outputText id="playerEnergy" value="#{characterView.getEnergy()}"/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="1">
+                        <p:commandButton actionListener="#{jobController.startJob(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Start working" update="playerEnergy"></p:commandButton>
                     </p:column>
                     <p:column colspan="1">
                         <p:commandButton action = "#{redirectView.redirect()}" actionListener="#{jobController.finishJob(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Stop working" ></p:commandButton>

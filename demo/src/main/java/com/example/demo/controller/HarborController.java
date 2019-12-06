@@ -10,17 +10,18 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 import javax.inject.Named;
+import javax.xml.crypto.Data;
 
 @Named
 public class HarborController {
 
     public static void makeHarborEnemy(Character character) {
         System.out.println("enemyt csinalunk");
-        Harbor harbor= new Harbor();
+        Harbor harbor = new Harbor();
         Faker faker = new Faker();
         Random random = new Random();
         int enemycash = random.nextInt(40) + 10;
-        int enemylevel= random.nextInt(character.getLevel()) + 4;
+        int enemylevel = random.nextInt(character.getLevel()) + 4;
         String enemyName = faker.name().fullName();
         harbor.setHarborEnemyName(enemyName);
         harbor.setHarborEnemyCash(enemycash);
@@ -93,14 +94,16 @@ public class HarborController {
     }
 
     public void attackHarborEnemy(Character character) {
-        if(character.getEnemy().getLevel() < character.getLevel()) {
-            character.setCash(character.getCash() + character.getHarbor().getHarborEnemyCash());
-            DatabaseHandler.updateUser(character.getName(),"cash", character.getCash());
-            nextHarborEnemy(character);
+        if (character.getEnergy() >= 3) {
+            character.setEnergy(character.getEnergy() - 3);
+            DatabaseHandler.updateUser(character.getName(), "energy", character.getEnergy());
+            if (character.getEnemy().getLevel() < character.getLevel()) {
+                character.setCash(character.getCash() + character.getHarbor().getHarborEnemyCash());
+                DatabaseHandler.updateUser(character.getName(), "cash", character.getCash());
+                nextHarborEnemy(character);
+            } else {
+                nextHarborEnemy(character);
+            }
         }
-        else {
-            nextHarborEnemy(character);
-        }
-
     }
 }

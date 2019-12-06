@@ -45,11 +45,21 @@
                     </p:column>
                 </p:row>
                 <p:row>
+                    <p:column colspan="3">Energy Cost:</p:column>
+                    <p:column colspan="3">5</p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="3">Energy::</p:column>
                     <p:column colspan="3">
-                        <p:commandButton actionListener="#{arenaController.nextEnemy(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Next" update="enemyName enemyLevel enemyCash playerCash"></p:commandButton>
+                        <h:outputText id="playerEnergy" value="#{characterView.getEnergy()}"/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="3">
+                        <p:commandButton actionListener="#{arenaController.nextEnemy(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Next" update="enemyName enemyLevel enemyCash playerCash playerEnergy"></p:commandButton>
                     </p:column>
                     <p:column colspan="3">
-                        <p:commandButton actionListener="#{arenaController.attackEnemy(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Attack" update="enemyName enemyLevel enemyCash playerCash"></p:commandButton>
+                        <p:commandButton actionListener="#{arenaController.attackEnemy(characterController.getCharacterByUserName(cookieView.nameStoredInCookie))}" value="Attack" update="enemyName enemyLevel enemyCash playerCash playerEnergy"></p:commandButton>
                     </p:column>
                 </p:row>
 
