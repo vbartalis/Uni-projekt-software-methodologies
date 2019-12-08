@@ -90,23 +90,18 @@ public class MarketController {
                     break;
                 case "slot2":
                     randomizeMarketItem2(character);
-                    character.getMarket().setMarketSlot2(0);
                     break;
                 case "slot3":
                     randomizeMarketItem3(character);
-                    character.getMarket().setMarketSlot3(0);
                     break;
                 case "slot4":
                     randomizeMarketItem4(character);
-                    character.getMarket().setMarketSlot4(0);
                     break;
                 case "slot5":
                     randomizeMarketItem5(character);
-                    character.getMarket().setMarketSlot5(0);
                     break;
                 case "slot6":
                     randomizeMarketItem6(character);
-                    character.getMarket().setMarketSlot6(0);
                     break;
 
             }
