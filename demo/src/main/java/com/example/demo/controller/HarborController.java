@@ -94,7 +94,7 @@ public class HarborController {
     }
 
     public void attackHarborEnemy(Character character) {
-        if (character.getEnergy() >= 3) {
+        if (character.getEnergy() >= 3 && character.isWorking() <= 0) {
             character.setEnergy(character.getEnergy() - 3);
             DatabaseHandler.updateUser(character.getName(), "energy", character.getEnergy());
             if (character.getEnemy().getLevel() < character.getLevel()) {
@@ -104,6 +104,8 @@ public class HarborController {
             } else {
                 nextHarborEnemy(character);
             }
+        } else {
+            System.out.println("You can't attack the enemy!");
         }
     }
 }

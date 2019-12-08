@@ -19,6 +19,8 @@ public class HouseController
             character.setWorking(4);
             DatabaseHandler.updateUser(character.getName(), "is_working", character.isWorking());
             DatabaseHandler.updateUser(character.getName(), "work_end", character.getWork_end());
+            character.setEnergy(character.getEnergy() + (100 - character.getEnergy())/2);
+            DatabaseHandler.updateUser(character.getName(), "energy", character.getEnergy() + (100 - character.getEnergy())/2);
         }
         else
         {
@@ -37,6 +39,8 @@ public class HouseController
             character.setWorking(8);
             DatabaseHandler.updateUser(character.getName(), "is_working", character.isWorking());
             DatabaseHandler.updateUser(character.getName(), "work_end", character.getWork_end());
+            character.setEnergy(100);
+            DatabaseHandler.updateUser(character.getName(),"energy", 100);
         }
         else
         {

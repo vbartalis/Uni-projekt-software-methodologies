@@ -10,7 +10,7 @@ public class JobController {
 
     public void startJob(Character character)
     {
-        System.out.println("Start working if the character dose not already or dose not do a quest");
+        System.out.println("Start working if the character does not already or dose not do a quest");
         System.out.println("is working: " + character.isWorking() + "quest id: " + character.getQuestId());
         if(character.getEnergy() >= 20) {
             if ((character.isWorking() <= 0) && (character.getQuestId()) < 0) {

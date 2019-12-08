@@ -54,7 +54,7 @@ public class ArenaController {
 
     public void attackEnemy(Character character) {
 
-        if(character.getEnergy() >= 5) {
+        if(character.getEnergy() >= 5 && character.isWorking() <= 0) {
             character.setEnergy(character.getEnergy() - 5);
             DatabaseHandler.updateUser(character.getName(),"energy", character.getEnergy());
             if (character.getEnemy().getLevel() < character.getLevel()) {
@@ -64,6 +64,8 @@ public class ArenaController {
             } else {
                 nextEnemy(character);
             }
+        } else {
+            System.out.println("You can't attack the enemy");
         }
 
     }
